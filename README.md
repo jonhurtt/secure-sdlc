@@ -35,20 +35,20 @@ List of Security Functions provided by Prisma Cloud
 1. Continuous Workload Vulnerability Scanning of cloud workloads
 
 ## Information for Deployment
-1. Ensure repository is public or part of GitHub Enterprise for GitHub Code Security Integration 
+- Ensure repository is public or part of GitHub Enterprise for GitHub Code Security Integration 
     - [Read more here](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)
-1. Configure GitHub Actions to allow for Write Permissions (Settings->Actions->General->Under "Workflow permissions"->Enable "Read and Write Permissions")
+- Configure GitHub Actions to allow for Write Permissions (Settings->Actions->General->Under "Workflow permissions"->Enable "Read and Write Permissions")
 
 ### Integration with AWS
-1. Configure GitHub Action Secret - `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
+- Configure GitHub Action Secret - `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
 
 ### Integrations with Terraform Cloud
-1. Configure GitHub Action Secret - `TF_API_TOKEN`
-1. Configure GitHub Action Variables - `TERRAFORM_CLOUD_WORKSPACE` and `TERRAFORM_CLOUD_ORG`
+- Configure GitHub Action Secret - `TF_API_TOKEN`
+- Configure GitHub Action Variables - `TERRAFORM_CLOUD_WORKSPACE` and `TERRAFORM_CLOUD_ORG`
 
 ### Integrations with Prisma Cloud
-1. Configure GitHub Action Secret for IaC Scanning - `BC_API_KEY`
-1. Configure GitHub Action Secret for Image Scanning - `PCC_CONSOLE_URL`, `PCC_PASS` and `PCC_USER`
+- Configure GitHub Action Secret for IaC Scanning - `BC_API_KEY`
+- Configure GitHub Action Secret for Image Scanning - `PCC_CONSOLE_URL`, `PCC_PASS` and `PCC_USER`
 
 ## Links
 - [How Prisma Cloud Secures Cloud Native App Development with DevOps Plugins](https://www.paloaltonetworks.com/blog/prisma-cloud/cloud-devops-plugins)
