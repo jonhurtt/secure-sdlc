@@ -1,0 +1,40 @@
+name: Push to ECR
+
+on:
+ 
+  push:
+    branches: [ main ]
+
+jobs:
+  
+  build-and-push:
+    
+    name: Build Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set current date as env variable
+        run: echo "DATE=$(date +'%Y%m%d_%H%M')" >> $GITHUB_ENV
+   
+      - name: Check out code
+        uses: actions/checkout@master
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ecr_image_repository
+          IMAGE_TAG: dockerfile_image_${{ github.event.repository.name }}_$DATE
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
