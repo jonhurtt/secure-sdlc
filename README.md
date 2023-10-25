@@ -67,6 +67,10 @@ List of Security Functions provided by Prisma Cloud
 - [How to Deploy a Dockerised Application on AWS ECS With Terraform](https://medium.com/avmconsulting-blog/how-to-deploy-a-dockerised-node-js-application-on-aws-ecs-with-terraform-3e6bceb48785)
 - [Bridgecrew Workshop - Yor Tag & Trace ](https://workshop.bridgecrew.io/terraform/40_module_two/2002_yor_github_action.html)
 
+## Base Repos (Building Blocks)
+- Build Container Image and push to Amazon Elastic Container Registry (ECR) -  [https://github.com/jonhurtt/pc-container-image-scan](https://github.com/jonhurtt/pc-container-image-scan)
+- Build Amazon Elastic Compute Cloud (EC2) Instance with webserver via script at launch and deploy using Terraform Cloud [https://github.com/jonhurtt/github-terraform-aws](https://github.com/jonhurtt/github-terraform-aws)
+
 ## Inspiration
 - [https://github.com/jcallowaypanw/cloud-security-aws-environement](https://github.com/jcallowaypanw/cloud-security-aws-environement)
 - [https://github.com/try-panwiac/vulnerable-front-end](https://github.com/try-panwiac/vulnerable-front-end)
