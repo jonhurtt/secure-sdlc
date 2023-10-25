@@ -3,7 +3,6 @@
 # secure-sdlc
 Repository for showing a Secure Software Development Lifecyle
 
-
 ## Goals
 1. Build Container Image and push to Amazon Elastic Container Registry (ECR)
 1. Deploy Conatiner Image within Amazon Elastic Container Service (ECS)
@@ -12,9 +11,9 @@ Repository for showing a Secure Software Development Lifecyle
 ## Technologies Used:
 - Terraform
 - Docker
-- GitHub
-- GitHub Actions
-- Terraform Cloud
+- GitHub (VCS)
+- GitHub Actions (CI)
+- Terraform Cloud (CD)
 - Amazon Elastic Container Registry (ECR)
 - Amazon Elastic Compute Cloud (Amazon EC2)
 - Amazon Elastic Container Service (ECS)
@@ -66,3 +65,6 @@ List of Security Functions provided by Prisma Cloud
 - [Automated Container Image Scanning with the Prisma Cloud GitHub Action](https://www.paloaltonetworks.com/blog/prisma-cloud/github-action-container-image-scanning/)
 - [How to Deploy a Dockerised Application on AWS ECS With Terraform](https://medium.com/avmconsulting-blog/how-to-deploy-a-dockerised-node-js-application-on-aws-ecs-with-terraform-3e6bceb48785)
 - [Bridgecrew Workshop - Yor Tag & Trace ](https://workshop.bridgecrew.io/terraform/40_module_two/2002_yor_github_action.html)
+
+## Inspiration
+- [https://github.com/jcallowaypanw/cloud-security-aws-environement](https://github.com/jcallowaypanw/cloud-security-aws-environement)
