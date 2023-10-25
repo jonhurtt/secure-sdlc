@@ -9,8 +9,8 @@ Repository for showing a Secure Software Development Lifecyle
 1. Build Amazon Elastic Compute Cloud (EC2) Instance with webserver via script at launch and deploy using Terraform Cloud
 
 ## Technologies Used:
-- Terraform
-- Docker
+- Docker (Code)
+- Terraform (IAC)
 - GitHub (VCS)
 - GitHub Actions (CI)
 - Terraform Cloud (CD)
