@@ -7,8 +7,7 @@ Repository for showing a Secure Software Development Lifecyle
 ## Goals
 1. Build Container Image and push to Amazon Elastic Container Registry (ECR)
 1. Deploy Conatiner Image within Amazon Elastic Container Service (ECS)
-1. Build Amazon Elastic Compute Cloud (EC2) Instance with webserver via script at launch
-1. Allow Amazon Elastic Compute Cloud (EC2) Insance to be pubically exposed 
+1. Build Amazon Elastic Compute Cloud (EC2) Instance with webserver via script at launch and deploy using Terraform Cloud
 
 ## Technologies Used:
 - Terraform
