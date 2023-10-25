@@ -1,9 +1,9 @@
-name: "Terraform Apply on Push"
+name: Terraform Apply on Push
 
 on:
+
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 env:
   TF_CLOUD_ORGANIZATION: "${{ vars.TERRAFORM_CLOUD_ORG }}"
