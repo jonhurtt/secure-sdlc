@@ -1,7 +1,7 @@
 *Work in Progress*
 
 # secure-sdlc
-Repository for showing a Secure Softwared Development Lifecyle
+Repository for showing a Secure Software Development Lifecyle
 
 
 ## Goals
@@ -47,8 +47,18 @@ List of Security Functions provided by Prisma Cloud
 - Configure GitHub Action Variables - `TERRAFORM_CLOUD_WORKSPACE` and `TERRAFORM_CLOUD_ORG`
 
 ### Integrations with Prisma Cloud
+- Information for GitHubAction for IaC Tagging - [yor-action](https://github.com/bridgecrewio/yor-action)
 - Configure GitHub Action Secret for IaC Scanning - `BC_API_KEY`
+    - [checkov-action](https://github.com/bridgecrewio/checkov-action)
 - Configure GitHub Action Secret for Image Scanning - `PCC_CONSOLE_URL`, `PCC_PASS` and `PCC_USER`
+    - [prisma-cloud-scan](https://github.com/PaloAltoNetworks/prisma-cloud-scan)
+    - [legacy github action](https://github.com/twistlock/sample-code/tree/master/CI/GitHub)
 
-## Links
+## Links & Resources
+- [Automate Terraform with GitHub Actions](https://developer.hashicorp.com/terraform/tutorials/automation/github-actions)
+- [Docker Docs - Containerizing an Application ](https://docs.docker.com/get-started/)
+- [Github Action to AWS ECR (Docker Image) | Full Hands-on Tutorial](https://www.youtube.com/watch?v=yv8-Si5AB3U)
 - [How Prisma Cloud Secures Cloud Native App Development with DevOps Plugins](https://www.paloaltonetworks.com/blog/prisma-cloud/cloud-devops-plugins)
+- [Automated Container Image Scanning with the Prisma Cloud GitHub Action](https://www.paloaltonetworks.com/blog/prisma-cloud/github-action-container-image-scanning/)
+- [How to Deploy a Dockerised Application on AWS ECS With Terraform](https://medium.com/avmconsulting-blog/how-to-deploy-a-dockerised-node-js-application-on-aws-ecs-with-terraform-3e6bceb48785)
+- [Bridgecrew Workshop - Yor Tag & Trace ](https://workshop.bridgecrew.io/terraform/40_module_two/2002_yor_github_action.html)
