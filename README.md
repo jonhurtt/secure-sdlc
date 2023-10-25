@@ -1,7 +1,7 @@
-**Work in Progress**
+*Work in Progress*
 
 # secure-sdlc
-Repository for showing a Secure SDLC
+Repository for showing a Secure Softwared Development Lifecyle
 
 
 ## Goals
@@ -16,4 +16,4 @@ Repository for showing a Secure SDLC
 - AWS
 
 ## Links
-- [How Prisma Cloud Secures Cloud Native App Development with DevOps Plugins] (https://www.paloaltonetworks.com/blog/prisma-cloud/cloud-devops-plugins)
+- [How Prisma Cloud Secures Cloud Native App Development with DevOps Plugins](https://www.paloaltonetworks.com/blog/prisma-cloud/cloud-devops-plugins)
