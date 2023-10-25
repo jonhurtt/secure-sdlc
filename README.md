@@ -68,3 +68,4 @@ List of Security Functions provided by Prisma Cloud
 
 ## Inspiration
 - [https://github.com/jcallowaypanw/cloud-security-aws-environement](https://github.com/jcallowaypanw/cloud-security-aws-environement)
+- [https://github.com/try-panwiac/vulnerable-front-end](https://github.com/try-panwiac/vulnerable-front-end)
