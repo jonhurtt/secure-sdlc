@@ -40,7 +40,7 @@ List of Security Functions provided by Prisma Cloud
 
 ## Information for Deployment
 - Ensure repository is public or part of GitHub Enterprise for GitHub Code Security Integration 
-    - [Read more here](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)
+    - [About GitHub Code Scanning Integration](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)
 - Configure GitHub Actions to allow for Write Permissions (Settings->Actions->General->Under "Workflow permissions"->Enable "Read and Write Permissions")
 
 ### Integration with AWS
