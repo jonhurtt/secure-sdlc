@@ -206,7 +206,7 @@ resource "aws_ecs_cluster" "main" {
 }
 
 resource "aws_ecs_service" "hello_world" {
-  name            = "hello-world-service"
+  name            = "secure-sdlc-ecs-service"
   cluster         = aws_ecs_cluster.main.id
   task_definition = aws_ecs_task_definition.hello_world.arn
   desired_count   = var.app_count

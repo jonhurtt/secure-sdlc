@@ -85,3 +85,5 @@ List of Security Functions provided by Prisma Cloud
 - Add additional resources within main.tf or expand to a more complex environment
 - Increase Runtime Security with auto deploy of Prisma Cloud Defender
 - Look into Trusted Images within Prisma Cloud
+- Look into [Deploy infrastructure with Terraform and CircleCI](https://developer.hashicorp.com/terraform/tutorials/automation/circle-ci)
+- Look into [Deploy Consul and Vault on Kubernetes with run triggers](https://developer.hashicorp.com/terraform/tutorials/automation/kubernetes-consul-vault-pipeline)
