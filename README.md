@@ -69,6 +69,7 @@ List of Security Functions provided by Prisma Cloud
 - [Bridgecrew Workshop - Yor Tag & Trace ](https://workshop.bridgecrew.io/terraform/40_module_two/2002_yor_github_action.html)
 - [Create and manage an AWS ECS cluster with Terraform](https://www.architect.io/blog/2021-03-30/create-and-manage-an-aws-ecs-cluster-with-terraform/)
 - [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+- [Terraform Cloud Workflows for GitHub](https://github.com/hashicorp/tfc-workflows-github)
 
 ## Inspiration
 - [https://github.com/jcallowaypanw/cloud-security-aws-environement](https://github.com/jcallowaypanw/cloud-security-aws-environement)
