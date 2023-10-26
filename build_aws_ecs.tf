@@ -202,7 +202,7 @@ in the depends_on array.
 */
 
 resource "aws_ecs_cluster" "main" {
-  name = "example-cluster"
+  name = "secure-sdlc-ecs"
 }
 
 resource "aws_ecs_service" "hello_world" {
