@@ -70,6 +70,7 @@ resource "aws_instance" "web" {
               cp index.html /var/www/html/index.html
               systemctl restart apache2
               EOF
+}
 
 
 resource "aws_security_group" "web-sg" {
