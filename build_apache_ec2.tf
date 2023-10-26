@@ -67,6 +67,7 @@ resource "aws_instance" "web" {
               apt-get install -y apache2
               sed -i -e 's/80/8080/' /etc/apache2/ports.conf
               curl -o index.html https://raw.githubusercontent.com/jonhurtt/secure-sdlc/main/html/index.html
+              cp index.html /var/www/html/index.html
               systemctl restart apache2
               EOF
 
