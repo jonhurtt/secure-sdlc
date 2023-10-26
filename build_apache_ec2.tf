@@ -40,6 +40,7 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+/*
 resource "aws_instance" "web" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t2.micro"
@@ -53,7 +54,22 @@ resource "aws_instance" "web" {
               echo "<p>Hello World!<br><br>this is part of the secure-sdlc created by Jonathan Hurtt (https://github.com/jonhurtt/secure-sdlc/)<p>" > /var/www/html/index.html
               systemctl restart apache2
               EOF
-}
+}*/
+
+resource "aws_instance" "web" {
+  ami                    = data.aws_ami.ubuntu.id
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.web-sg.id]
+
+  user_data = <<-EOF
+              #!/bin/bash
+              apt-get update
+              apt-get install -y apache2
+              sed -i -e 's/80/8080/' /etc/apache2/ports.conf
+              curl -o index.html https://raw.githubusercontent.com/jonhurtt/secure-sdlc/main/html/index.html
+              systemctl restart apache2
+              EOF
+
 
 resource "aws_security_group" "web-sg" {
   name = "${random_pet.sg.id}-sg"
