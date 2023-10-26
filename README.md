@@ -10,7 +10,7 @@ Repository for showing a Secure Software Development Lifecyle
 
 ## Technologies Used:
 - Docker (Code)
-- Terraform (IAC)
+- Terraform (IaC)
 - GitHub (VCS)
 - GitHub Actions (CI)
 - Terraform Cloud (CD)
