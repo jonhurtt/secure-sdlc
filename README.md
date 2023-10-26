@@ -78,7 +78,7 @@ List of Security Functions provided by Prisma Cloud
 ## Base Repos (Building Blocks)
 - Build Container Image and push to Amazon Elastic Container Registry (ECR) with Image Scanning
     - [https://github.com/jonhurtt/pc-container-image-scan](https://github.com/jonhurtt/pc-container-image-scan)
-- Build Amazon Elastic Compute Cloud (EC2) Instance with webserver via script at launch and deploy using Terraform Cloud with Yor Tagging & Checkok Scanning
+- Build Amazon Elastic Compute Cloud (EC2) Instance with webserver via script at launch and deploy using Terraform Cloud with Yor Tagging & Checkov Scanning
     - [https://github.com/jonhurtt/github-terraform-aws](https://github.com/jonhurtt/github-terraform-aws)
 
 ## Roadmap
