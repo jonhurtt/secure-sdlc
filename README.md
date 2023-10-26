@@ -1,6 +1,4 @@
 *Work in Progress*
-<Testing a Pull Request>
-Pushing Again
 
 # secure-sdlc
 Repository for showing a Secure Software Development Lifecyle
@@ -68,6 +66,7 @@ List of Security Functions provided by Prisma Cloud
 - [Automated Container Image Scanning with the Prisma Cloud GitHub Action](https://www.paloaltonetworks.com/blog/prisma-cloud/github-action-container-image-scanning/)
 - [How to Deploy a Dockerised Application on AWS ECS With Terraform](https://medium.com/avmconsulting-blog/how-to-deploy-a-dockerised-node-js-application-on-aws-ecs-with-terraform-3e6bceb48785)
 - [Bridgecrew Workshop - Yor Tag & Trace ](https://workshop.bridgecrew.io/terraform/40_module_two/2002_yor_github_action.html)
+- [Create and manage an AWS ECS cluster with Terraform](https://www.architect.io/blog/2021-03-30/create-and-manage-an-aws-ecs-cluster-with-terraform/)
 
 ## Inspiration
 - [https://github.com/jcallowaypanw/cloud-security-aws-environement](https://github.com/jcallowaypanw/cloud-security-aws-environement)
