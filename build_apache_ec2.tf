@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Buildng EC2 Instance with Apache and changing default webpage
 
+/* Moved to versions.tf
 terraform {
   required_providers {
     aws = {
@@ -19,6 +20,7 @@ terraform {
 provider "aws" {
   region = "us-east-1"
 }
+*/
 
 resource "random_pet" "sg" {}
 
@@ -70,7 +72,9 @@ resource "aws_security_group" "web-sg" {
   }
 }
 
-
+/*
+Moved to outputs.tf
 output "web-address" {
   value = "${aws_instance.web.public_dns}:8080"
 }
+*/
