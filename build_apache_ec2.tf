@@ -56,7 +56,7 @@ resource "aws_instance" "web" {
               EOF
 }*/
 
-resource "aws_instance" "web" {
+resource "aws_instance" "apache_ec2_instance" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.web-sg.id]
@@ -74,7 +74,8 @@ resource "aws_instance" "web" {
 
 
 resource "aws_security_group" "web-sg" {
-  name = "${random_pet.sg.id}-sg"
+  #name = "${random_pet.sg.id}-sg"
+  name = "web-sg"
   ingress {
     from_port   = 8080
     to_port     = 8080

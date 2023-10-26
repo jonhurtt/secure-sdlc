@@ -5,5 +5,5 @@ output "load_balancer_ip" {
 
 #from build_apache_ec2
 output "web-address" {
-  value = "${aws_instance.web.public_dns}:8080"
+  value = "${aws_instance.apache_ec2_instance.public_dns}:8080"
 }
