@@ -10,7 +10,7 @@ resource "aws_vpc" "default" {
 }
 
 #Public Subnet
-resource "aws_subnet" "public" {
+resource "aws_subnet" "public_sub" {
   count                   = 2
   cidr_block              = cidrsubnet(aws_vpc.default.cidr_block, 8, 2 + count.index)
   availability_zone       = data.aws_availability_zones.available_zones.names[count.index]
@@ -19,7 +19,7 @@ resource "aws_subnet" "public" {
 }
 
 #Private Subnet
-resource "aws_subnet" "private" {
+resource "aws_subnet" "private_sub" {
   count             = 2
   cidr_block        = cidrsubnet(aws_vpc.default.cidr_block, 8, count.index)
   availability_zone = data.aws_availability_zones.available_zones.names[count.index]
@@ -34,42 +34,42 @@ private route table that includes the NAT gateway is added to the private subnet
 Security groups will need to be added next to allow or reject traffic in a more fine-grained way both 
 from the load balancer and the application service*/
 
-resource "aws_internet_gateway" "gateway" {
+resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws_vpc.default.id
 }
 
 resource "aws_route" "internet_access" {
   route_table_id         = aws_vpc.default.main_route_table_id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.gateway.id
+  gateway_id             = aws_internet_gateway.internet_gateway.id
 }
 
-resource "aws_eip" "gateway" {
+resource "aws_eip" "gateway_eip" {
   count      = 2
   domain     = "vpc"
-  depends_on = [aws_internet_gateway.gateway]
+  depends_on = [aws_internet_gateway.internet_gateway]
 }
 
-resource "aws_nat_gateway" "gateway" {
+resource "aws_nat_gateway" "nat_gateway" {
   count         = 2
-  subnet_id     = element(aws_subnet.public.*.id, count.index)
-  allocation_id = element(aws_eip.gateway.*.id, count.index)
+  subnet_id     = element(aws_subnet.public_sub.*.id, count.index)
+  allocation_id = element(aws_eip.gateway_eip.*.id, count.index)
 }
 
-resource "aws_route_table" "private" {
+resource "aws_route_table" "private_rt" {
   count  = 2
   vpc_id = aws_vpc.default.id
 
   route {
     cidr_block = "0.0.0.0/0"
-    nat_gateway_id = element(aws_nat_gateway.gateway.*.id, count.index)
+    nat_gateway_id = element(aws_nat_gateway.nat_gateway.*.id, count.index)
   }
 }
 
-resource "aws_route_table_association" "private" {
+resource "aws_route_table_association" "private_rta" {
   count          = 2
-  subnet_id      = element(aws_subnet.private.*.id, count.index)
-  route_table_id = element(aws_route_table.private.*.id, count.index)
+  subnet_id      = element(aws_subnet.private_sub.*.id, count.index)
+  route_table_id = element(aws_route_table.private_rt.*.id, count.index)
 }
 
 /*
@@ -77,8 +77,8 @@ The load balancer’s security group will only allow traffic to the load balance
 by the ingress block within the resource block. Traffic from the load balancer will be allowed to 
 anywhere on any port with any protocol with the settings in the egress block.
 */
-resource "aws_security_group" "lb" {
-  name        = "example-alb-security-group"
+resource "aws_security_group" "lb_sg" {
+  name        = "alb-security-group"
   vpc_id      = aws_vpc.default.id
 
   ingress {
@@ -101,27 +101,27 @@ The first block defines the load balancer itself and attaches it to the public s
 in each availability zone with the load balancer security group. 
 */
 
-resource "aws_lb" "default" {
-  name            = "example-lb"
-  subnets         = aws_subnet.public.*.id
-  security_groups = [aws_security_group.lb.id]
+resource "aws_lb" "default_lb" {
+  name            = "aws-loadbalancer"
+  subnets         = aws_subnet.public_sub.*.id
+  security_groups = [aws_security_group.lb_sg.id]
 }
 
-resource "aws_lb_target_group" "hello_world" {
-  name        = "example-target-group"
+resource "aws_lb_target_group" "lb_target_group" {
+  name        = "lb-target-group"
   port        = 80
   protocol    = "HTTP"
   vpc_id      = aws_vpc.default.id
   target_type = "ip"
 }
 
-resource "aws_lb_listener" "hello_world" {
-  load_balancer_arn = aws_lb.default.id
+resource "aws_lb_listener" "lb_listener" {
+  load_balancer_arn = aws_lb.default_lb.id
   port              = "80"
   protocol          = "HTTP"
 
   default_action {
-    target_group_arn = aws_lb_target_group.hello_world.id
+    target_group_arn = aws_lb_target_group.lb_target_group.id
     type             = "forward"
   }
 }
@@ -138,7 +138,7 @@ an elastic network interface and a private IP address should be assigned to
 the task when it runs.
 */
 
-resource "aws_ecs_task_definition" "hello_world" {
+resource "aws_ecs_task_definition" "task_definition" {
   family                   = "hello-world-app"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
@@ -171,15 +171,15 @@ settings also include the security group of the load balancer as that will allow
 from the network interfaces that are used with that security group. It allows all 
 outbound traffic of any protocol as seen in the egress settings.
 */
-resource "aws_security_group" "hello_world_task" {
-  name        = "example-task-security-group"
+resource "aws_security_group" "hello_world_task_sg" {
+  name        = "task-security-group"
   vpc_id      = aws_vpc.default.id
 
   ingress {
     protocol        = "tcp"
     from_port       = 3000
     to_port         = 3000
-    security_groups = [aws_security_group.lb.id]
+    security_groups = [aws_security_group.lb_sg.id]
   }
 
   egress {
@@ -201,28 +201,28 @@ until the load balancer has been, so the load balancer listener is included
 in the depends_on array.
 */
 
-resource "aws_ecs_cluster" "main" {
+resource "aws_ecs_cluster" "main_ecs_cluster" {
   name = "secure-sdlc-ecs"
 }
 
-resource "aws_ecs_service" "hello_world" {
+resource "aws_ecs_service" "hello_world_ecs_srvc" {
   name            = "secure-sdlc-ecs-service"
-  cluster         = aws_ecs_cluster.main.id
-  task_definition = aws_ecs_task_definition.hello_world.arn
+  cluster         = aws_ecs_cluster.main_ecs_cluster.id
+  task_definition = aws_ecs_task_definition.task_definition.arn
   desired_count   = var.app_count
   launch_type     = "FARGATE"
 
   network_configuration {
-    security_groups = [aws_security_group.hello_world_task.id]
-    subnets         = aws_subnet.private.*.id
+    security_groups = [aws_security_group.hello_world_task_sg.id]
+    subnets         = aws_subnet.private_sub.*.id
   }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.hello_world.id
+    target_group_arn = aws_lb_target_group.lb_target_group.id
     container_name   = "hello-world-app"
     container_port   = 3000
   }
 
-  depends_on = [aws_lb_listener.hello_world]
+  depends_on = [aws_lb_listener.lb_listener]
 }
 
