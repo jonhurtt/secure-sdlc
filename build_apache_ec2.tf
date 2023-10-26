@@ -1,5 +1,6 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
+# Buildng EC2 Instance with Apache and changing default webpage
 
 terraform {
   required_providers {
