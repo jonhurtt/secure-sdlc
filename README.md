@@ -59,6 +59,7 @@ List of Security Functions provided by Prisma Cloud
     - [legacy github action](https://github.com/twistlock/sample-code/tree/master/CI/GitHub)
 
 ## Links & Resources
+- [Install Terraform](https://developer.hashicorp.com/terraform/downloads)
 - [Automate Terraform with GitHub Actions](https://developer.hashicorp.com/terraform/tutorials/automation/github-actions)
 - [Docker Docs - Containerizing an Application ](https://docs.docker.com/get-started/)
 - [Github Action to AWS ECR (Docker Image) | Full Hands-on Tutorial](https://www.youtube.com/watch?v=yv8-Si5AB3U)
