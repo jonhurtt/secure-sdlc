@@ -97,7 +97,8 @@ resource "aws_security_group" "lb" {
 }
 
 /*
-The first block defines the load balancer itself and attaches it to the public subnet in each availability zone with the load balancer security group. 
+The first block defines the load balancer itself and attaches it to the public subnet 
+in each availability zone with the load balancer security group. 
 */
 
 resource "aws_lb" "default" {
