@@ -1,10 +1,5 @@
 *Work in Progress*
 
-- [![Checkov Scan on Pull and Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_scan_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_scan_on_push.yml)
-- [![IaC Yor Tagging on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging_on_push.yml)
-- [![Push Image to AWS ECR on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr_on_push.yml)
-- [![Terraform Plan on Pull](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan_on_pull.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan_on_pull.yml)
-- [![Terraform Apply on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_apply_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_apply_on_push.yml)
 
 Repository for showing a Secure Software Development Lifecyle
 
@@ -62,6 +57,13 @@ List of Security Functions provided by Prisma Cloud
 - Configure GitHub Action Secret for Image Scanning - `PCC_CONSOLE_URL`, `PCC_PASS` and `PCC_USER`
     - [prisma-cloud-scan](https://github.com/PaloAltoNetworks/prisma-cloud-scan)
     - [legacy github action](https://github.com/twistlock/sample-code/tree/master/CI/GitHub)
+
+## GitHub Action Workflows
+- [![Checkov Scan on Pull and Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_scan_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_scan_on_push.yml)
+- [![IaC Yor Tagging on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging_on_push.yml)
+- [![Push Image to AWS ECR on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr_on_push.yml)
+- [![Terraform Plan on Pull](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan_on_pull.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan_on_pull.yml)
+- [![Terraform Apply on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_apply_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_apply_on_push.yml)
 
 ## Links & Resources
 - [Install Terraform](https://developer.hashicorp.com/terraform/downloads)
