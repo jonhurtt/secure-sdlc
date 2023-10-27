@@ -65,6 +65,7 @@ List of Security Functions provided by Prisma Cloud
 - [![Push Image to AWS ECR on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr_on_push.yml)
 - [![Terraform Plan on Pull](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan_on_pull.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan_on_pull.yml)
 - [![Terraform Apply on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_apply_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_apply_on_push.yml)
+- [![Scan Image on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/image_scan_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/image_scan_on_push.yml)
 
 ## Links & Resources
 - [Install Terraform](https://developer.hashicorp.com/terraform/downloads)
