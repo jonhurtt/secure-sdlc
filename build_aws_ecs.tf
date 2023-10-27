@@ -27,17 +27,6 @@ resource "aws_subnet" "public_sub" {
   availability_zone       = data.aws_availability_zones.available_zones.names[count.index]
   vpc_id                  = aws_vpc.default.id
   map_public_ip_on_launch = true
-  tags = {
-    prod_git_commit           = "ff82a4c60f2b54d294e9730ab26e572649cb85aa"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-26 18:24:37"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "public_sub"
-    prod_yor_trace            = "22eb6b14-2f1c-4ab6-84d8-2948e3d24ccc"
-  }
 }
 
 #Private Subnet
@@ -46,17 +35,6 @@ resource "aws_subnet" "private_sub" {
   cidr_block        = cidrsubnet(aws_vpc.default.cidr_block, 8, count.index)
   availability_zone = data.aws_availability_zones.available_zones.names[count.index]
   vpc_id            = aws_vpc.default.id
-  tags = {
-    prod_git_commit           = "ff82a4c60f2b54d294e9730ab26e572649cb85aa"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-26 18:24:37"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "private_sub"
-    prod_yor_trace            = "a18ad357-07b4-4ca3-b6cb-017a42397fe2"
-  }
 }
 
 /*These six resources handle networking and communication to and from the internet outside of the VPC. 
@@ -102,7 +80,7 @@ resource "aws_eip" "gateway_eip" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "gateway_eip"
-    prod_yor_trace            = "2fcd160f-0524-43fa-b855-03603f63d99e"
+    prod_yor_trace            = "4f954e2c-abb3-45cf-8f62-7e603bab8661"
   }
 }
 
@@ -111,17 +89,6 @@ resource "aws_nat_gateway" "nat_gateway" {
   subnet_id     = element(aws_subnet.public_sub.*.id, count.index)
   allocation_id = element(aws_eip.gateway_eip.*.id, count.index)
 
-  tags = {
-    prod_git_commit           = "24d88e46dca8e711600eaaa3731cc64d69edcb0a"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-27 14:08:00"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "nat_gateway"
-    prod_yor_trace            = "f8d4abe4-bfaf-491b-9f2c-b2e869d901ab"
-  }
 }
 
 resource "aws_route_table" "private_rt" {
@@ -131,17 +98,6 @@ resource "aws_route_table" "private_rt" {
   route {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = element(aws_nat_gateway.nat_gateway.*.id, count.index)
-  }
-  tags = {
-    prod_git_commit           = "ff82a4c60f2b54d294e9730ab26e572649cb85aa"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-26 18:24:37"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "private_rt"
-    prod_yor_trace            = "14f98b23-9bd7-4fdd-961d-b2d0656f61b3"
   }
 }
 
@@ -182,7 +138,7 @@ resource "aws_security_group" "lb_sg" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "lb_sg"
-    prod_yor_trace            = "9c70221f-e5b7-4906-9ad4-ef82d8f8fb52"
+    prod_yor_trace            = "ca28f349-b251-40f8-8dfd-998b2a00ee32"
   }
 }
 
@@ -204,7 +160,7 @@ resource "aws_lb" "default_lb" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "default_lb"
-    prod_yor_trace            = "5231eda1-2c43-4800-9422-4b976cefb939"
+    prod_yor_trace            = "de278abf-3463-49e3-8343-9321818fdbff"
   }
 }
 
@@ -215,17 +171,6 @@ resource "aws_lb_target_group" "lb_target_group" {
   vpc_id      = aws_vpc.default.id
   target_type = "ip"
 
-  tags = {
-    prod_git_commit           = "24d88e46dca8e711600eaaa3731cc64d69edcb0a"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-27 14:08:00"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "lb_target_group"
-    prod_yor_trace            = "c423a32b-9f63-4b43-acff-1733aa82ee60"
-  }
 }
 
 resource "aws_lb_listener" "lb_listener" {
@@ -275,17 +220,6 @@ resource "aws_ecs_task_definition" "task_definition" {
   }
 ]
 DEFINITION
-  tags = {
-    prod_git_commit           = "ff82a4c60f2b54d294e9730ab26e572649cb85aa"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-26 18:24:37"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "task_definition"
-    prod_yor_trace            = "148fa194-df08-451d-a7a0-235e19e0041b"
-  }
 }
 
 /*
@@ -321,7 +255,7 @@ resource "aws_security_group" "hello_world_task_sg" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "hello_world_task_sg"
-    prod_yor_trace            = "3e430005-655e-4b4a-b84a-893dfd497ca8"
+    prod_yor_trace            = "77898eca-3cad-4684-9bf1-8889975930ef"
   }
 }
 
@@ -340,15 +274,15 @@ resource "aws_ecs_cluster" "main_ecs_cluster" {
   name = "secure-sdlc-ecs"
 
   tags = {
-    prod_git_commit           = "24d88e46dca8e711600eaaa3731cc64d69edcb0a"
+    prod_git_commit           = "ff82a4c60f2b54d294e9730ab26e572649cb85aa"
     prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-27 14:08:00"
+    prod_git_last_modified_at = "2023-10-26 18:24:37"
     prod_git_last_modified_by = "JonHurtt@gmail.com"
     prod_git_modifiers        = "JonHurtt"
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "main_ecs_cluster"
-    prod_yor_trace            = "7fc68f2b-1630-4b7c-b0ce-04cb5e0bba73"
+    prod_yor_trace            = "b4cc1982-2663-48e3-8b3f-ecc09e9999a0"
   }
 }
 
@@ -373,15 +307,15 @@ resource "aws_ecs_service" "hello_world_ecs_srvc" {
   depends_on = [aws_lb_listener.lb_listener]
 
   tags = {
-    prod_git_commit           = "24d88e46dca8e711600eaaa3731cc64d69edcb0a"
+    prod_git_commit           = "ff82a4c60f2b54d294e9730ab26e572649cb85aa"
     prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-27 14:08:00"
+    prod_git_last_modified_at = "2023-10-26 18:24:37"
     prod_git_last_modified_by = "JonHurtt@gmail.com"
     prod_git_modifiers        = "JonHurtt"
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "hello_world_ecs_srvc"
-    prod_yor_trace            = "f790a3b6-beac-4102-b1de-990211ab10e0"
+    prod_yor_trace            = "a443735d-748a-4a41-865c-68db3d3287a6"
   }
 }
 
