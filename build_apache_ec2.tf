@@ -79,7 +79,7 @@ resource "aws_instance" "apache_ec2_instance" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "apache_ec2_instance"
-    prod_yor_trace            = "3dbc5e2c-14d3-412f-9b68-652cdb8866b0"
+    prod_yor_trace            = "721fb389-0661-47b5-9557-25f421d95a7f"
   }
 }
 
@@ -109,7 +109,7 @@ resource "aws_security_group" "web-sg" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "web-sg"
-    prod_yor_trace            = "85f299e2-27fb-4fb9-8e7b-3b76a48d6117"
+    prod_yor_trace            = "b32a5460-a9d6-45d9-83ee-750007da4974"
   }
 }
 
