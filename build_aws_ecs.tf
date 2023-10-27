@@ -61,7 +61,7 @@ resource "aws_route_table" "private_rt" {
   vpc_id = aws_vpc.default.id
 
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block     = "0.0.0.0/0"
     nat_gateway_id = element(aws_nat_gateway.nat_gateway.*.id, count.index)
   }
 }
@@ -78,8 +78,8 @@ by the ingress block within the resource block. Traffic from the load balancer w
 anywhere on any port with any protocol with the settings in the egress block.
 */
 resource "aws_security_group" "lb_sg" {
-  name        = "alb-security-group"
-  vpc_id      = aws_vpc.default.id
+  name   = "alb-security-group"
+  vpc_id = aws_vpc.default.id
 
   ingress {
     protocol    = "tcp"
@@ -89,9 +89,9 @@ resource "aws_security_group" "lb_sg" {
   }
 
   egress {
-    from_port = 0
-    to_port   = 0
-    protocol  = "-1"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
@@ -172,8 +172,8 @@ from the network interfaces that are used with that security group. It allows al
 outbound traffic of any protocol as seen in the egress settings.
 */
 resource "aws_security_group" "hello_world_task_sg" {
-  name        = "task-security-group"
-  vpc_id      = aws_vpc.default.id
+  name   = "task-security-group"
+  vpc_id = aws_vpc.default.id
 
   ingress {
     protocol        = "tcp"
