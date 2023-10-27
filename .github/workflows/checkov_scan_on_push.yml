@@ -1,0 +1,27 @@
+name: "Checkov-Scan-Pull-Push"
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+
+  #Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+jobs:
+  checkov-scanning-job:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    name: checkov-action
+    env:
+      PRISMA_API_URL: https://api4.prismacloud.io
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Run Checkov Action
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: '.'
+          soft_fail: true
+          api-key: ${{ secrets.BC_API_KEY }}
