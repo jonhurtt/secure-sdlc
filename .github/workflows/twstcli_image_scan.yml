@@ -1,9 +1,9 @@
 name: "[pull-02] Twistcli Image Scan"
 
 on:
-    #push:
-    #  branches: [main]
-    workflow_dispatch:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
 
 env:
     IMAGE_NAME: ${{ github.repository }}:${{ github.sha }}

@@ -1,8 +1,8 @@
 name: "[pull-01] IaC Yor Tagging"
 
 on:
-  #push:
-  #  branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 

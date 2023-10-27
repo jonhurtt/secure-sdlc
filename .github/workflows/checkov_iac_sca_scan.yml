@@ -3,11 +3,8 @@ name: "[push-01] Checkov (IaC/SCA) Scan"
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  #push:
-  #  branches: [main]
-  #pull_request:
-  #  branches: [main]
-  #Allows you to run this workflow manually from the Actions tab
+  push:
+    branches: [main]
   workflow_dispatch:
 
 

@@ -64,7 +64,8 @@ List of Security Functions provided by Prisma Cloud
 1. [![[pull-01] IaC Yor Tagging](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging.yml)
 1. [![[pull-02] Twistcli Image Scan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/twstcli_image_scan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/twstcli_image_scan.yml)
 1. [![[pull-03] Terraform Plan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan.yml)
-### On Push
+
+### On Push to Main Branch
 1. [![[push-01] Checkov (IaC/SCA) Scan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_iac_sca_scan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_iac_sca_scan.yml)
 1. [![[push-02] Checkov Image Scan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_image_scan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_image_scan.yml)
 1. [![[push-03] Push Image to AWS ECR](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr.yml)
