@@ -24,6 +24,7 @@ List of Security Functions provided by Prisma Cloud
 1. IaC Tagging with Yor via GitHub Action @ Pull Request 
 1. Image Scanning with Twistcli via GitHub Action @ Pull Request
 1. IaC & SCA Scanning with Checkov via GitHub Action @ Push to Main Branch
+1. IaC & SCA Scanning with Prisma Cloud via Integration @ Push to Main Branch
 
 ### Secure @ Build & Deploy
 1. Image Scanning with Checkov via GitHub Action @ Push to Main Branch
