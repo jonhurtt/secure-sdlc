@@ -1,6 +1,5 @@
 *Work in Progress*
 
-
 Repository for showing a Secure Software Development Lifecyle
 
 ## Goals
