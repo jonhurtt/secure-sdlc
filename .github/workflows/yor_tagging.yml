@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  yor-tagging-job:
+  yor_tagging:
     permissions: 
       contents: write
     runs-on: ubuntu-latest

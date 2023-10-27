@@ -12,8 +12,8 @@ env:
   CONFIG_DIRECTORY: "./"
 
 jobs:
-  terraform:
-    name: "Terraform Plan Job is running..."
+  terraform_plan:
+    name: "Terraform Plan"
     runs-on: ubuntu-latest
     permissions:
       contents: read
