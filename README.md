@@ -1,7 +1,10 @@
 *Work in Progress*
+[![Checkov Scan on Pull and Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_scan_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_scan_on_push.yml)
+[![IaC Yor Tagging on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging_on_push.yml)
+[![Push Image to AWS ECR on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr_on_push.yml)
+[![Push Image to AWS ECR on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr_on_push.yml)
+[![Terraform Plan on Pull](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan_on_pull.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan_on_pull.yml)
 
-
-# secure-sdlc
 Repository for showing a Secure Software Development Lifecyle
 
 ## Goals

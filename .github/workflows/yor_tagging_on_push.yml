@@ -10,6 +10,7 @@ jobs:
   yor-tagging-job:
     permissions: write-all
     runs-on: ubuntu-latest
+    name: Yor Tagging of IaC Templates
     steps:
       - name: checkout-repo
         uses: actions/checkout@v2
