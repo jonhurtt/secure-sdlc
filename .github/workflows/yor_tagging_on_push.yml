@@ -8,7 +8,8 @@ on:
 
 jobs:
   yor-tagging-job:
-    permissions: write-all
+    permissions: 
+      contents: write
     runs-on: ubuntu-latest
     name: Yor Tagging of IaC Templates
     steps:
