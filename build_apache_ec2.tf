@@ -71,15 +71,24 @@ resource "aws_instance" "apache_ec2_instance" {
               systemctl restart apache2
               EOF
   tags = {
-    git_commit           = "282151d89a5e91d764e4284eb3a6301cb6dc3b4d"
-    git_file             = "build_apache_ec2.tf"
-    git_last_modified_at = "2023-10-26 18:36:42"
-    git_last_modified_by = "JonHurtt@gmail.com"
-    git_modifiers        = "JonHurtt"
-    git_org              = "jonhurtt"
-    git_repo             = "secure-sdlc"
-    yor_name             = "apache_ec2_instance"
-    yor_trace            = "7e1d1c1e-2abc-482d-98f6-e4ad18537b0c"
+    git_commit                 = "282151d89a5e91d764e4284eb3a6301cb6dc3b4d"
+    git_file                   = "build_apache_ec2.tf"
+    git_last_modified_at       = "2023-10-26 18:36:42"
+    git_last_modified_by       = "JonHurtt@gmail.com"
+    git_modifiers              = "JonHurtt"
+    git_org                    = "jonhurtt"
+    git_repo                   = "secure-sdlc"
+    yor_name                   = "apache_ec2_instance"
+    yor_trace                  = "7e1d1c1e-2abc-482d-98f6-e4ad18537b0c"
+    securegit_commit           = "282151d89a5e91d764e4284eb3a6301cb6dc3b4d"
+    securegit_file             = "build_apache_ec2.tf"
+    securegit_last_modified_at = "2023-10-26 18:36:42"
+    securegit_last_modified_by = "JonHurtt@gmail.com"
+    securegit_modifiers        = "JonHurtt"
+    securegit_org              = "jonhurtt"
+    securegit_repo             = "secure-sdlc"
+    secureyor_name             = "apache_ec2_instance"
+    secureyor_trace            = "473a9b30-87a3-48e4-87e0-cc1525acf1d5"
   }
 }
 
@@ -101,15 +110,24 @@ resource "aws_security_group" "web-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    git_commit           = "282151d89a5e91d764e4284eb3a6301cb6dc3b4d"
-    git_file             = "build_apache_ec2.tf"
-    git_last_modified_at = "2023-10-26 18:36:42"
-    git_last_modified_by = "JonHurtt@gmail.com"
-    git_modifiers        = "JonHurtt"
-    git_org              = "jonhurtt"
-    git_repo             = "secure-sdlc"
-    yor_name             = "web-sg"
-    yor_trace            = "64c722a3-1fab-4316-b8e6-e6bf3f46ea73"
+    git_commit                 = "282151d89a5e91d764e4284eb3a6301cb6dc3b4d"
+    git_file                   = "build_apache_ec2.tf"
+    git_last_modified_at       = "2023-10-26 18:36:42"
+    git_last_modified_by       = "JonHurtt@gmail.com"
+    git_modifiers              = "JonHurtt"
+    git_org                    = "jonhurtt"
+    git_repo                   = "secure-sdlc"
+    yor_name                   = "web-sg"
+    yor_trace                  = "64c722a3-1fab-4316-b8e6-e6bf3f46ea73"
+    securegit_commit           = "282151d89a5e91d764e4284eb3a6301cb6dc3b4d"
+    securegit_file             = "build_apache_ec2.tf"
+    securegit_last_modified_at = "2023-10-26 18:36:42"
+    securegit_last_modified_by = "JonHurtt@gmail.com"
+    securegit_modifiers        = "JonHurtt"
+    securegit_org              = "jonhurtt"
+    securegit_repo             = "secure-sdlc"
+    secureyor_name             = "web-sg"
+    secureyor_trace            = "7c3d491b-beca-4d39-94d2-d414a9a2b018"
   }
 }
 
