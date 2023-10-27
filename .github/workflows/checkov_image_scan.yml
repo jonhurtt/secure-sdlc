@@ -34,7 +34,7 @@ jobs:
             api-key: ${{ secrets.BC_API_KEY }}
             quiet: true # optional: display only failed checks
             soft_fail: true # optional: do not return an error code if there are failed checks
-            log_level: DEBUG # optional: set log level. Default WARNING
+            log_level: WARNING # optional: set log level. Default WARNING
             docker_image: ${{ env.IMAGE_NAME }} # define the name of the image to scan
             dockerfile_path: ${{ format('{0}/Dockerfile', env.IMAGE_PATH) }} # path to the Dockerfile
             container_user: 1000 # optional: Define what UID and / or what GID to run the container under to prevent permission issues
