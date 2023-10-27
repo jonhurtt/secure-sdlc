@@ -61,15 +61,14 @@ List of Security Functions provided by Prisma Cloud
 
 ## GitHub Action Workflows
 ### On Pull Request
-1. [![[step] IaC Yor Tagging on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging_on_push.yml)
-1. [![[step] Scan Image on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/twstcli_image_scan_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/twstcli_image_scan_on_push.yml)
-1. [![[step] Terraform Plan on Pull](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan_on_pull.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan_on_pull.yml)
-
+1. [![[pull-01] IaC Yor Tagging](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging.yml)
+1. [![[pull-02] Twistcli Image Scan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/twstcli_image_scan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/twstcli_image_scan.yml)
+1. [![[pull-03] Terraform Plan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan.yml)
 ### On Push
-1.[![[step] Checkov (IaC/SCA) Scan on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_iac_sca_scan_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_iac_sca_scan_on_push.yml)
-1. [![[step] Checkov Image Scan on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_image_scan_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_image_scan_on_push.yml)
-1. [![[step] Push Image to AWS ECR on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr_on_push.yml)
-1. [![[step] Terraform Apply on Push](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_apply_on_push.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_apply_on_push.yml)
+1. [![[push-01] Checkov (IaC/SCA) Scan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_iac_sca_scan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_iac_sca_scan.yml)
+1. [![[push-02] Checkov Image Scan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_image_scan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_image_scan.yml)
+1. [![[push-03] Push Image to AWS ECR](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr.yml)
+1. [![[push-04] Terraform Apply](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_apply.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_apply.yml)
 
 
 ## Links & Resources
