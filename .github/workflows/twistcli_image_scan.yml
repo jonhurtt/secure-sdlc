@@ -7,6 +7,7 @@ on:
 
 env:
     IMAGE_NAME: ${{ github.repository }}:${{ github.sha }}
+    IMAGE_PATH: "."
 
 jobs:
   build-and-scan:
@@ -25,7 +26,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Build the Image
-        run: docker build -t $IMAGE_NAME .
+        run: docker build -t ${{ env.IMAGE_NAME }} ${{ env.IMAGE_PATH }}
         
       - name: Prisma Cloud image scan
         id: scan

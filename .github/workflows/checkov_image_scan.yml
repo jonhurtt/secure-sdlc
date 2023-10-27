@@ -9,8 +9,8 @@ on:
 
 env:
     IMAGE_NAME: ${{ github.repository }}:${{ github.sha }}
-    IMAGE_PATH: /path/
-    
+    IMAGE_PATH: "."
+
 jobs:
     checkov_image_scan:
       permissions:
