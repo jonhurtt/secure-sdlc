@@ -1,4 +1,4 @@
-name: "on Push (Scan Code, Scan Image, Push Image & Apply)"
+name: "on Push Workflow"
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
