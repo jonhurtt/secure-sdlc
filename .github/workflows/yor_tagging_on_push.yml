@@ -23,4 +23,4 @@ jobs:
           LOG_LEVEL: WARNING
         with:
           tags: git_file,git_commit,git_repository,yor_trace
-          tag_prefix: "secure_"
+          tag_prefix: "prod_"
