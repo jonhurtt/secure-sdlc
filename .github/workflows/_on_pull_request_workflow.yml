@@ -1,1 +1,27 @@
 name: "on Pull Request (Tag IaC, Scan Image & Plan)"
+
+on:
+  #push:
+  #  branches: [main]
+  workflow_dispatch:
+
+
+jobs:
+  yor-tagging-job:
+    permissions: 
+      contents: write
+    runs-on: ubuntu-latest
+    name: Yor Tagging of IaC Templates
+    steps:
+      - name: checkout-repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: yor-tagging
+        uses: bridgecrewio/yor-action@main
+        env:
+          LOG_LEVEL: WARNING
+        with:
+          tag_prefix: "prod_"
+          #tags: git_file,git_commit,git_repository,yor_trace
+          
