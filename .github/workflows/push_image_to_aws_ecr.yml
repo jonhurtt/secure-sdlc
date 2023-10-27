@@ -7,10 +7,9 @@ on:
 
 
 jobs:
-  
-  build-and-push:
+  build_and_push_image:
     
-    name: Build and Push Image
+    name: "Build and Push Image"
     runs-on: ubuntu-latest
 
     steps:
