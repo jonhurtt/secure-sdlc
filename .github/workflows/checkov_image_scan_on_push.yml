@@ -1,4 +1,4 @@
-name: "Checkov Image Scan on Push"
+name: "[step] Checkov Image Scan on Push"
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch

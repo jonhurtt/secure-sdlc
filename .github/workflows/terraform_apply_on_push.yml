@@ -1,4 +1,4 @@
-name: Terraform Apply on Push
+name: "[step] Terraform Apply on Push"
 
 on:
   #push:

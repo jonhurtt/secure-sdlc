@@ -1,4 +1,4 @@
-name: Scan Image on Push
+name: "[step] Scan Image on Push"
 
 on:
     #push:

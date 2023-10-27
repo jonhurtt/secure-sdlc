@@ -1,4 +1,4 @@
-name: "IaC Yor Tagging on Push"
+name: "[step] IaC Yor Tagging on Push"
 
 on:
   #push:
