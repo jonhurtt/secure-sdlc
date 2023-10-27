@@ -7,17 +7,6 @@ data "aws_availability_zones" "available_zones" {
 
 resource "aws_vpc" "default" {
   cidr_block = "10.32.0.0/16"
-  tags = {
-    prod_git_commit           = "0b0a1af661b08c9b522dc77eef3cdb5995637a7a"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-26 13:08:31"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "default"
-    prod_yor_trace            = "bccb332d-1489-41a0-ad2d-6cead0c57121"
-  }
 }
 
 #Public Subnet
@@ -48,17 +37,6 @@ from the load balancer and the application service*/
 resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws_vpc.default.id
 
-  tags = {
-    prod_git_commit           = "24d88e46dca8e711600eaaa3731cc64d69edcb0a"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-27 14:08:00"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "internet_gateway"
-    prod_yor_trace            = "5de0d2ac-6b73-4304-afe3-76dec67bb99d"
-  }
 }
 
 resource "aws_route" "internet_access" {
@@ -71,17 +49,6 @@ resource "aws_eip" "gateway_eip" {
   count      = 2
   domain     = "vpc"
   depends_on = [aws_internet_gateway.internet_gateway]
-  tags = {
-    prod_git_commit           = "ff82a4c60f2b54d294e9730ab26e572649cb85aa"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-26 18:24:37"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "gateway_eip"
-    prod_yor_trace            = "4f954e2c-abb3-45cf-8f62-7e603bab8661"
-  }
 }
 
 resource "aws_nat_gateway" "nat_gateway" {
@@ -129,17 +96,6 @@ resource "aws_security_group" "lb_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  tags = {
-    prod_git_commit           = "ff82a4c60f2b54d294e9730ab26e572649cb85aa"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-26 18:24:37"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "lb_sg"
-    prod_yor_trace            = "ca28f349-b251-40f8-8dfd-998b2a00ee32"
-  }
 }
 
 /*
@@ -151,17 +107,6 @@ resource "aws_lb" "default_lb" {
   name            = "aws-loadbalancer"
   subnets         = aws_subnet.public_sub.*.id
   security_groups = [aws_security_group.lb_sg.id]
-  tags = {
-    prod_git_commit           = "ff82a4c60f2b54d294e9730ab26e572649cb85aa"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-26 18:24:37"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "default_lb"
-    prod_yor_trace            = "de278abf-3463-49e3-8343-9321818fdbff"
-  }
 }
 
 resource "aws_lb_target_group" "lb_target_group" {
@@ -246,17 +191,6 @@ resource "aws_security_group" "hello_world_task_sg" {
     to_port     = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
-  tags = {
-    prod_git_commit           = "ff82a4c60f2b54d294e9730ab26e572649cb85aa"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-26 18:24:37"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "hello_world_task_sg"
-    prod_yor_trace            = "77898eca-3cad-4684-9bf1-8889975930ef"
-  }
 }
 
 /*
@@ -273,17 +207,6 @@ in the depends_on array.
 resource "aws_ecs_cluster" "main_ecs_cluster" {
   name = "secure-sdlc-ecs"
 
-  tags = {
-    prod_git_commit           = "ff82a4c60f2b54d294e9730ab26e572649cb85aa"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-26 18:24:37"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "main_ecs_cluster"
-    prod_yor_trace            = "b4cc1982-2663-48e3-8b3f-ecc09e9999a0"
-  }
 }
 
 resource "aws_ecs_service" "hello_world_ecs_srvc" {
@@ -306,16 +229,5 @@ resource "aws_ecs_service" "hello_world_ecs_srvc" {
 
   depends_on = [aws_lb_listener.lb_listener]
 
-  tags = {
-    prod_git_commit           = "ff82a4c60f2b54d294e9730ab26e572649cb85aa"
-    prod_git_file             = "build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-26 18:24:37"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "hello_world_ecs_srvc"
-    prod_yor_trace            = "a443735d-748a-4a41-865c-68db3d3287a6"
-  }
 }
 
