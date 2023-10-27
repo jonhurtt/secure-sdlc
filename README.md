@@ -13,7 +13,7 @@ Repository for showing a Secure Software Development Lifecyle
 - Terraform (IaC)
 - GitHub (VCS)
 - GitHub Actions (CI)
-- Terraform Cloud (CD)
+- [Terraform Cloud (CD)](https://app.terraform.io/session)
 - Amazon Elastic Container Registry (ECR)
 - Amazon Elastic Compute Cloud (Amazon EC2)
 - Amazon Elastic Container Service (ECS)
