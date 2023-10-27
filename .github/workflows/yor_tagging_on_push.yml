@@ -22,5 +22,5 @@ jobs:
         env:
           LOG_LEVEL: WARNING
         with:
-          tag: git_file,git_commit,git_repository,yor_trace
-          tag_prefix: "secure"
+          tags: git_file,git_commit,git_repository,yor_trace
+          tag_prefix: "secure_"
