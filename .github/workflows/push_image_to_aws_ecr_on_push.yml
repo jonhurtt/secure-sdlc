@@ -1,4 +1,4 @@
-name: "[step] Push Image to AWS ECR on Push"
+name: "[push-03] Push Image to AWS ECR"
 
 on:
   #push:

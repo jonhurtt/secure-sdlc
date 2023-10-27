@@ -1,4 +1,4 @@
-name: "[step] Terraform Plan on Pull"
+name: "[pull-03]Terraform Plan"
 
 on:
   #pull_request:

@@ -1,4 +1,4 @@
-name: "[step] Scan Image on Push"
+name: "[pull-02] Twistcli Image Scan"
 
 on:
     #push:
