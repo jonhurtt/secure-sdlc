@@ -27,8 +27,8 @@ List of Security Functions provided by Prisma Cloud
 1. IaC & SCA Scanning with Prisma Cloud via Integration @ Push to Main Branch
 
 ### Secure @ Build & Deploy
+1. IaC & SCA Scanning with Prisma Cloud via Integration with Terraform Cloud
 1. Image Scanning with Checkov via GitHub Action @ Push to Main Branch
-1. IaC & SCA Scanning with Checkov via Integration with Terraform Cloud
 1. Scanning Images in Container Image Registry via Prisma Cloud
 
 ### Secure the Runtime
@@ -113,4 +113,4 @@ List of Security Functions provided by Prisma Cloud
     - `cp build_apache_ec2.untagged-tf build_apache_ec2.tf`
     - `cp build_aws_ecs.untagged-tf build_aws_ecs.tf`
 
-end
+/end
