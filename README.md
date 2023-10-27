@@ -60,13 +60,15 @@ List of Security Functions provided by Prisma Cloud
 
 ## GitHub Action Workflows
 ### On Pull Request
-[![on Pull Request Workflow](https://github.com/jonhurtt/secure-sdlc/actions/workflows/_on_pull_request_workflow.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/_on_pull_request_workflow.yml)
+[![on Pull Workflow](https://github.com/jonhurtt/secure-sdlc/actions/workflows/_on_pull_workflow.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/_on_pull_workflow.yml)
+
 1. [![[pull-01] IaC Yor Tagging](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging.yml)
 1. [![[pull-02] Twistcli Image Scan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/twistcli_image_scan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/twistcli_image_scan.yml)
 1. [![[pull-03] Terraform Plan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan.yml)
 
 ### On Push to Main Branch
 [![on Push (Scan Code, Scan Image, Push Image & Apply)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/_on_push_workflow.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/_on_push_workflow.yml)
+
 1. [![[push-01] Checkov (IaC/SCA) Scan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_iac_sca_scan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_iac_sca_scan.yml)
 1. [![[push-02] Checkov Image Scan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_image_scan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_image_scan.yml)
 1. [![[push-03] Push Image to AWS ECR](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr.yml)
