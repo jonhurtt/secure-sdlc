@@ -10,6 +10,9 @@ env:
 
 jobs:
   build-and-scan:
+    permissions: 
+        contents: write
+    
     name: Build and scan image
     runs-on: ubuntu-latest
 

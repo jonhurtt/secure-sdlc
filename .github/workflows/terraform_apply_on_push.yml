@@ -14,7 +14,6 @@ env:
 
 jobs:
   terraform:
-    #if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
     name: "Terraform Apply Job is running..."
     runs-on: ubuntu-latest
     permissions:
