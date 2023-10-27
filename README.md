@@ -53,6 +53,7 @@ List of Security Functions provided by Prisma Cloud
 ### Integrations with Prisma Cloud
 - Information for GitHubAction for IaC Tagging - [yor-action](https://github.com/bridgecrewio/yor-action)
 - Configure GitHub Action Secret for IaC Scanning - `BC_API_KEY`
+- Configure GitHub Action Variables - `PRISMA_API_URL`
     - [checkov-action](https://github.com/bridgecrewio/checkov-action)
 - Configure GitHub Action Secret for Image Scanning - `PCC_CONSOLE_URL`, `PCC_PASS` and `PCC_USER`
     - [prisma-cloud-scan](https://github.com/PaloAltoNetworks/prisma-cloud-scan)

@@ -10,8 +10,12 @@ env:
 
 jobs:
   build-and-scan:
-    permissions: 
-        contents: write
+    permissions:
+      # required for all workflows
+      security-events: write
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
     
     name: Build and scan image
     runs-on: ubuntu-latest
