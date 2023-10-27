@@ -109,6 +109,8 @@ List of Security Functions provided by Prisma Cloud
 - Look into [Deploy Consul and Vault on Kubernetes with run triggers](https://developer.hashicorp.com/terraform/tutorials/automation/kubernetes-consul-vault-pipeline)
 
 ## Clean Up
+-Script abilable via [`reset_environment.sh`](https://github.com/jonhurtt/secure-sdlc/blob/main/reset_environment.sh)
+
 - Commands to replace tf with non-tagged tf
     - `cp build_apache_ec2.untagged-tf build_apache_ec2.tf`
     - `cp build_aws_ecs.untagged-tf build_aws_ecs.tf`
