@@ -112,5 +112,6 @@ List of Security Functions provided by Prisma Cloud
 - Commands to replace tf with non-tagged tf
     - `cp build_apache_ec2.untagged-tf build_apache_ec2.tf`
     - `cp build_aws_ecs.untagged-tf build_aws_ecs.tf`
+- Destroy via Terraform Cloud UI
 
 /end
