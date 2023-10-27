@@ -78,6 +78,7 @@ List of Security Functions provided by Prisma Cloud
 - [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 - [Terraform Cloud Workflows for GitHub](https://github.com/hashicorp/tfc-workflows-github)
 - [Terraform AWS modules](https://github.com/terraform-aws-modules)
+- [Create Amazon EKS Cluster using Terraform Module](https://dev.to/aws-builders/create-amazon-eks-cluster-using-terraform-module-27p5)
 
 ## Inspiration
 - [https://github.com/jcallowaypanw/cloud-security-aws-environement](https://github.com/jcallowaypanw/cloud-security-aws-environement)
