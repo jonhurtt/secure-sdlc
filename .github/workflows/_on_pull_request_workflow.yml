@@ -1,4 +1,4 @@
-name: "on Pull Request (Tag IaC, Scan Image & Plan)"
+name: "on Pull Request Workflow"
 
 on:
   #pull_request:
@@ -39,7 +39,7 @@ jobs:
       actions: read
       contents: read
     
-    name: Build and scan image
+    name: Build and Scan Image with twistcli
     runs-on: ubuntu-latest
 
     steps:

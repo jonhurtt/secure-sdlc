@@ -1,8 +1,8 @@
 name: "[pull-02] Twistcli Image Scan"
 
 on:
-  #pull_request:
-  #  branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 env:
