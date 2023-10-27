@@ -41,6 +41,7 @@ jobs:
     
     name: Build and Scan Image with twistcli
     runs-on: ubuntu-latest
+    needs: yor_tagging
 
     steps:
       - name: Check out the repository
@@ -69,6 +70,7 @@ jobs:
   terraform_plan:
     name: "Terraform Plan"
     runs-on: ubuntu-latest
+    needs: [ yor_tagging, twistcli_image_scan]
     permissions:
       contents: read
       pull-requests: write
