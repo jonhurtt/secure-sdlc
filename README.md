@@ -61,7 +61,7 @@ List of Security Functions provided by Prisma Cloud
 ## GitHub Action Workflows
 ### On Pull Request
 1. [![[pull-01] IaC Yor Tagging](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/yor_tagging.yml)
-1. [![[pull-02] Twistcli Image Scan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/twstcli_image_scan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/twstcli_image_scan.yml)
+1. [![[pull-02] Twistcli Image Scan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/twistcli_image_scan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/twistcli_image_scan.yml)
 1. [![[pull-03] Terraform Plan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_plan.yml)
 
 ### On Push to Main Branch
