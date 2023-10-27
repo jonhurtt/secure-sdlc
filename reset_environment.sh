@@ -17,11 +17,11 @@ ls -al $currentlocation/_baseline/ | grep .tf
 echo $spacer
 
 echo "Replacing build_apache_ec2"
-cp $currentlocation/_basline/build_apache_ec2.untagged-tf $currentlocation/build_apache_ec2.tf
+cp $currentlocation/_baseline/build_apache_ec2.untagged-tf $currentlocation/build_apache_ec2.tf
 echo $spacer
 
 echo "Replacing build_aws_ecs"
-cp $currentlocation/_basline/build_aws_ecs.untagged-tf $currentlocation/build_aws_ecs.tf 
+cp $currentlocation/_baseline/build_aws_ecs.untagged-tf $currentlocation/build_aws_ecs.tf 
 echo $spacer
 
 #2 Initiate a Commit via API? 
