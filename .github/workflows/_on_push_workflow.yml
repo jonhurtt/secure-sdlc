@@ -1,1 +1,48 @@
 name: "on Push (Scan Code, Scan Image, Push Image & Apply)"
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  #push:
+  #  branches: [main]
+  #pull_request:
+  #  branches: [main]
+  #Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+jobs:
+  checkov-scanning-job:
+    permissions:
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+    
+    runs-on: ubuntu-latest
+    name: "Checkov IAC and SCA Scan on Push"
+    
+    env:
+      PRISMA_API_URL: ${{ vars.PRISMA_API_URL }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Run Checkov Action
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: '.'
+          soft_fail: true
+          api-key: ${{ secrets.BC_API_KEY }}
+      
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        
+        # Results are generated only on a success or failure
+        # this is required since GitHub by default won't run the next step
+        # when the previous one has failed. Security checks that do not pass will 'fail'.
+        # An alternative is to add `continue-on-error: true` to the previous step
+        # Or 'soft_fail: true' to checkov.
+        if: success() || failure()
+        with:
+          sarif_file: results.sarif
