@@ -20,16 +20,15 @@ Repository for showing a Secure Software Development Lifecyle
 ## Security Provided by Prisma Cloud
 List of Security Functions provided by Prisma Cloud
 ### Secure the Source
-1. IaC Scanning with Checkov via IDE Plugin
+1. IaC & SCA Scanning with Checkov via IDE Plugin
 1. IaC Tagging with Yor via GitHub Action @ Pull Request 
-1. IaC Scanning with Checkov via GitHub Action @ Pull Request
-1. IaC Tagging with Yor via GitHub Action @ Push to Main Branch
-1. IaC Scanning with Checkov via GitHub Action @ Push to Main Branch
+1. Image Scanning with Twistcli via GitHub Action @ Pull Request
+1. IaC & SCA Scanning with Checkov via GitHub Action @ Push to Main Branch
 
 ### Secure @ Build & Deploy
-1. Image Scanning at Commit via Defender @ Push to Main Branch
-1. IaC Scanning with Checkov via Integration with Terraform Cloud
-1. Scanning Images in Container Image Registry
+1. Image Scanning with Checkov via GitHub Action @ Push to Main Branch
+1. IaC & SCA Scanning with Checkov via Integration with Terraform Cloud
+1. Scanning Images in Container Image Registry via Prisma Cloud
 
 ### Secure the Runtime
 1. Scanning for CI/CD Risk within Pipeline
