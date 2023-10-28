@@ -1,15 +1,14 @@
 name: "on Push Workflow"
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
-  push:
-    branches: [main]
+  #push:
+  #  branches: [main]
   workflow_dispatch:
 
 env:
   PRISMA_API_URL: ${{ vars.PRISMA_API_URL }}
   IMAGE_NAME: ${{ github.repository }}:${{ github.sha }}
+  IMAGE_PATH: "."
   TF_CLOUD_ORGANIZATION: "${{ vars.TERRAFORM_CLOUD_ORG }}"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "${{ vars.TERRAFORM_CLOUD_WORKSPACE }}"
@@ -27,7 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     name: "Checkov IAC and SCA Scan on Push"
     
-
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -52,39 +50,49 @@ jobs:
         with:
           sarif_file: results.sarif
           
-#From checkov_image_scan.yml
-  checkov-image-scan:
+#from twistcli_image_scan.yml
+  twistcli_image_scan:
     permissions:
-      contents: read # for actions/checkout to fetch code
-      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
-      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+      # required for all workflows
+      security-events: write
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
+    
+    name: Build and scan image
     runs-on: ubuntu-latest
-    name: checkov-image-scan
-  
+    needs: checkov_iac_sca_scan
+
     steps:
-      - name: "Checkout repo"
+      - name: Check out the repository
         uses: actions/checkout@master
-    
-      - name: "Build the image"
-        run: docker build -t ${{ env.IMAGE_NAME }}
-    
-      - name: "Run Checkov action"
-        id: checkov
-        uses: bridgecrewio/checkov-action@master
+
+      - name: Build the Image
+        run: docker build -t ${{ env.IMAGE_NAME }} ${{ env.IMAGE_PATH }}
+        
+      - name: Prisma Cloud image scan
+        id: scan
+        uses: PaloAltoNetworks/prisma-cloud-scan@v1.5
         with:
-          quiet: true # optional: display only failed checks
-          soft_fail: true # optional: do not return an error code if there are failed checks
-          log_level: DEBUG # optional: set log level. Default WARNING
-          docker_image: ${{ env.IMAGE_NAME }} # define the name of the image to scan
-          #dockerfile_path: ${{ format('{0}/Dockerfile', env.IMAGE_PATH) }} # path to the Dockerfile
-          container_user: 1000 # optional: Define what UID and / or what GID to run the container under to prevent permission issues
-          api-key: ${{ secrets.BC_API_KEY }} # Bridgecrew API key stored as a GitHub secret
-  
-  #from push_image_to_aws_ecr.yml
+          pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
+          pcc_user: ${{ secrets.PCC_USER }}
+          pcc_pass: ${{ secrets.PCC_PASS }}
+          image_name: ${{ env.IMAGE_NAME }}
+          #containerized: true
+          
+      # (Optional) for compatibility with GitHub's code scanning alerts
+      - name: Upload SARIF file
+        if: ${{ always() }} # necessary if using failure thresholds in the image scan
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarif_file }}
+
+#from push_image_to_aws_ecr.yml
   build_and_push_image:
       
       name: "Build and Push Image"
       runs-on: ubuntu-latest
+      needs: [ checkov_iac_sca_scan, twistcli_image_scan]
 
       steps:
         - name: Set current date as env variable
@@ -117,6 +125,8 @@ jobs:
   terraform_apply:
       name: "Terraform Apply"
       runs-on: ubuntu-latest
+      needs: [ checkov_iac_sca_scan, twistcli_image_scan, build_and_push_image]
+
       permissions:
         contents: read
       steps:

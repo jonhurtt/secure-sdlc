@@ -1,8 +1,8 @@
-name: "[pull-02] Twistcli Image Scan"
+name: "Twistcli Image Scan"
 
 on:
-  pull_request:
-    branches: [main]
+  #pull_request:
+  #  branches: [main]
   workflow_dispatch:
 
 env:
@@ -10,7 +10,7 @@ env:
     IMAGE_PATH: "."
 
 jobs:
-  build-and-scan:
+  twistcli_image_scan:
     permissions:
       # required for all workflows
       security-events: write

@@ -1,11 +1,9 @@
-name: "[push-02] Checkov Image Scan"
+name: "Checkov Image Scan"
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
-    push:
-      branches: [main]
-    workflow_dispatch:
+  #push:
+  #  branches: [main]
+  workflow_dispatch:
 
 env:
     IMAGE_NAME: ${{ github.repository }}:${{ github.sha }}
