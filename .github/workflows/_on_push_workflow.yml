@@ -3,7 +3,7 @@ name: "{main} on Push Workflow"
 on:
   push:
     branches: [main]
-  workflow_dispatch:
+  #workflow_dispatch:
 
 env:
   PRISMA_API_URL: ${{ vars.PRISMA_API_URL }}
