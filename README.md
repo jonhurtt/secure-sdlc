@@ -75,8 +75,8 @@ List of Security Functions provided by Prisma Cloud
 1. [![[push-03] Push Image to AWS ECR](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/push_image_to_aws_ecr.yml)
 1. [![[push-04] Terraform Apply](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_apply.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/terraform_apply.yml)
 
-- Unused
-1. [![[push-02] Checkov Image Scan](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_image_scan.yml/badge.svg)](https://github.com/jonhurtt/secure-sdlc/actions/workflows/checkov_image_scan.yml)
+#### Deprecated Workflows
+- [Checkov Image Scan](https://github.com/jonhurtt/secure-sdlc/blob/main/_deprecated_workflows/checkov_image_scan.yml)
 
 
 ## Links & Resources

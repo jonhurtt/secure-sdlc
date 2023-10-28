@@ -3,7 +3,7 @@ name: "Terraform Plan"
 on:
   pull_request:
     branches: [main]
-  workflow_dispatch:
+  workflow_dispatch: #Will Fail on Manual Start Update PR needs Issue Number to add to Comments
 
 env:
   TF_CLOUD_ORGANIZATION: "${{ vars.TERRAFORM_CLOUD_ORG }}"

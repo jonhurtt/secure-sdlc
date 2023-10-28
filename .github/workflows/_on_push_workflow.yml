@@ -1,4 +1,4 @@
-name: "on Push Workflow"
+name: "{main} on Push Workflow"
 
 on:
   push:
