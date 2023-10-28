@@ -46,6 +46,7 @@ List of Security Functions provided by Prisma Cloud
 - Configure GitHub Action Variables - `AWS_ECR_REPOSITORY`
 
 ### Integrations with Terraform Cloud
+- Configure Workspace to allow for "Auto apply" for Apply Method
 - Configure GitHub Action Secret - `TF_API_TOKEN`
 - Configure GitHub Action Variables - `TERRAFORM_CLOUD_WORKSPACE` and `TERRAFORM_CLOUD_ORG`
 
@@ -110,6 +111,5 @@ List of Security Functions provided by Prisma Cloud
 
 ## Clean Up
 -Script abilable via [`reset_environment.sh`](https://github.com/jonhurtt/secure-sdlc/blob/main/reset_environment.sh)
-
 
 /end
