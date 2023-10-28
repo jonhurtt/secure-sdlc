@@ -120,7 +120,7 @@ jobs:
                 \`\`\`
                 Plan: ${{ steps.plan-output.outputs.add }} to add, ${{ steps.plan-output.outputs.change }} to change, ${{ steps.plan-output.outputs.destroy }} to destroy.
                 \`\`\`
-                [Terraform Cloud Plan](${{ steps.create-run.outputs.run_link }})
+                [Terraform Cloud Plan](${{ steps.plan-run.outputs.run_link }})
                 `;
             // 3. Delete previous comment so PR timeline makes sense
             if (botComment) {
