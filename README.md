@@ -114,5 +114,6 @@ List of Security Functions provided by Prisma Cloud
 
 ## Clean Up
 -Script abilable via [`reset_environment.sh`](https://github.com/jonhurtt/secure-sdlc/blob/main/reset_environment.sh)
+-Destroy Environment via Terraform Cloud
 
 /end

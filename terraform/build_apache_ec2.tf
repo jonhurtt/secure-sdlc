@@ -70,6 +70,17 @@ resource "aws_instance" "apache_ec2_instance" {
               cp index.html /var/www/html/index.html
               systemctl restart apache2
               EOF
+  tags = {
+    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
+    prod_git_file             = "terraform/build_apache_ec2.tf"
+    prod_git_last_modified_at = "2023-10-29 11:55:03"
+    prod_git_last_modified_by = "JonHurtt@gmail.com"
+    prod_git_modifiers        = "JonHurtt"
+    prod_git_org              = "jonhurtt"
+    prod_git_repo             = "secure-sdlc"
+    prod_yor_name             = "apache_ec2_instance"
+    prod_yor_trace            = "9945bcca-c1d4-419e-ba4e-a3356bca8152"
+  }
 }
 
 
@@ -88,6 +99,17 @@ resource "aws_security_group" "web-sg" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = {
+    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
+    prod_git_file             = "terraform/build_apache_ec2.tf"
+    prod_git_last_modified_at = "2023-10-29 11:55:03"
+    prod_git_last_modified_by = "JonHurtt@gmail.com"
+    prod_git_modifiers        = "JonHurtt"
+    prod_git_org              = "jonhurtt"
+    prod_git_repo             = "secure-sdlc"
+    prod_yor_name             = "web-sg"
+    prod_yor_trace            = "48fee0b0-5497-40e8-beee-d5154343ca71"
   }
 }
 
