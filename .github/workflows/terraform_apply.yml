@@ -10,7 +10,7 @@ env:
   TF_CLOUD_ORGANIZATION: "${{ vars.TERRAFORM_CLOUD_ORG }}"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "${{ vars.TERRAFORM_CLOUD_WORKSPACE }}"
-  CONFIG_DIRECTORY: "./"
+  TF_CONFIG_DIRECTORY: "./terraform/"
 
 jobs:
   terraform_apply:
@@ -27,7 +27,7 @@ jobs:
         id: upload-config
         with:
           workspace: ${{ env.TF_WORKSPACE }}
-          directory: ${{ env.CONFIG_DIRECTORY }}
+          directory: ${{ env.TF_CONFIG_DIRECTORY }}
 
       - name: Create Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.4
