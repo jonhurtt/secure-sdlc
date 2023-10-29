@@ -23,21 +23,21 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Upload Configuration
-        uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
+        uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.4
         id: upload-config
         with:
           workspace: ${{ env.TF_WORKSPACE }}
           directory: ${{ env.CONFIG_DIRECTORY }}
 
       - name: Create Run
-        uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
+        uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.4
         id: create-run
         with:
           workspace: ${{ env.TF_WORKSPACE }}
           configuration_version: ${{ steps.upload-config.outputs.configuration_version_id }}
 
       - name: Apply Run
-        uses: hashicorp/tfc-workflows-github/actions/apply-run@v1.0.0
+        uses: hashicorp/tfc-workflows-github/actions/apply-run@v1.0.4
         if: fromJSON(steps.create-run.outputs.payload).data.attributes.actions.IsConfirmable
         id: apply-run
         with:
