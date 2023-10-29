@@ -2,26 +2,32 @@
 # Written By Jonathan R. Hurtt
 # Part of https://github.com/jonhurtt/secure-sdlc
 #Bash script to reset the enviornment
+
+
 spacer="=============================================================================================================="
 echo $spacer
 echo "Start of Resetting Enviornment"
 echo $spacer
 #1. Step 1 remove Yor Tags from by repalcing with files without tags
-currentlocation=$(pwd)
-echo "Current Location"
-ls -al $currentlocation | grep .tf
+current_path=$(pwd)
+terraform_dir="/terraform"
+full_path=$current_path
+full_path+=$terraform_dir
+
+echo "Current Location: " $full_path
+ls -al $full_path | grep .tf
 echo $spacer
 
 echo "Basline Files"
-ls -al $currentlocation/terraform/_baseline/ | grep .tf
+ls -al $full_path/_baseline/ | grep .tf
 echo $spacer
 
 echo "Replacing build_apache_ec2"
-cp $currentlocation/terraform/_baseline/build_apache_ec2.untagged-tf $currentlocation/terraform/build_apache_ec2.tf
+cp $full_path/_baseline/build_apache_ec2.untagged-tf $full_path/build_apache_ec2.tf
 echo $spacer
 
 echo "Replacing build_aws_ecs"
-cp $currentlocation/terraform/_baseline/build_aws_ecs.untagged-tf $currentlocation/terraform/build_aws_ecs.tf 
+cp $full_path/_baseline/build_aws_ecs.untagged-tf $full_path/build_aws_ecs.tf 
 echo $spacer
 
 #2 Initiate a Commit via API? 
