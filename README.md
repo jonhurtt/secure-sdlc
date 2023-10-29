@@ -111,6 +111,7 @@ List of Security Functions provided by Prisma Cloud
 - Enablie twistcli scan to SARIF [https://github.com/NJannasch/twistcli-sarif](https://github.com/NJannasch/twistcli-sarif)
 - Look into [Deploy infrastructure with Terraform and CircleCI](https://developer.hashicorp.com/terraform/tutorials/automation/circle-ci)
 - Look into [Deploy Consul and Vault on Kubernetes with run triggers](https://developer.hashicorp.com/terraform/tutorials/automation/kubernetes-consul-vault-pipeline)
+- Look to retrieve Terrform Apply Output and add to workflow in some manner
 
 ## Clean Up
 -Script abilable via [`reset_environment.sh`](https://github.com/jonhurtt/secure-sdlc/blob/main/reset_environment.sh)
