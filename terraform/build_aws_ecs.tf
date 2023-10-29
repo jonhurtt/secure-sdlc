@@ -16,7 +16,7 @@ resource "aws_vpc" "default" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "default"
-    prod_yor_trace            = "da848482-94dc-4f43-b740-11a2529111ba"
+    prod_yor_trace            = "e076fa0e-a661-4b41-ab60-3d99b4408784"
   }
 }
 
@@ -36,7 +36,7 @@ resource "aws_subnet" "public_sub" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "public_sub"
-    prod_yor_trace            = "cb4c9382-caf9-4bf8-9e6c-9fb2e2517901"
+    prod_yor_trace            = "4a350995-80f9-44b8-8a64-2648cc5b6501"
   }
 }
 
@@ -55,7 +55,7 @@ resource "aws_subnet" "private_sub" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "private_sub"
-    prod_yor_trace            = "55cd1ab1-88eb-4751-b666-761396f1168d"
+    prod_yor_trace            = "76bfb218-375b-4d8d-b683-b55a4eca3f90"
   }
 }
 
@@ -79,7 +79,7 @@ resource "aws_internet_gateway" "internet_gateway" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "internet_gateway"
-    prod_yor_trace            = "658cabd4-acf3-4f89-ac59-f742335e1490"
+    prod_yor_trace            = "b026b689-3a7b-4b95-b3f4-2372858db4a9"
   }
 }
 
@@ -102,7 +102,7 @@ resource "aws_eip" "gateway_eip" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "gateway_eip"
-    prod_yor_trace            = "81f5fe5a-fef7-429f-aac0-56b248d7d382"
+    prod_yor_trace            = "3f179fe8-db2f-4d50-80e5-34df1d16f766"
   }
 }
 
@@ -120,7 +120,7 @@ resource "aws_nat_gateway" "nat_gateway" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "nat_gateway"
-    prod_yor_trace            = "e8a5f49e-3faf-49c5-b95e-c358a86aebb0"
+    prod_yor_trace            = "43ff84fa-5c10-459f-9516-69ca257b370f"
   }
 }
 
@@ -141,7 +141,7 @@ resource "aws_route_table" "private_rt" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "private_rt"
-    prod_yor_trace            = "84c02cdb-624f-4968-ad27-7e51c0f779de"
+    prod_yor_trace            = "3057861b-2e68-43e8-89b8-bc28e280a992"
   }
 }
 
@@ -182,7 +182,7 @@ resource "aws_security_group" "lb_sg" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "lb_sg"
-    prod_yor_trace            = "804f11be-3259-41be-9c15-689937b4850d"
+    prod_yor_trace            = "a15b9da8-8d1f-4b74-a32a-d3d5ed5ec750"
   }
 }
 
@@ -204,7 +204,7 @@ resource "aws_lb" "default_lb" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "default_lb"
-    prod_yor_trace            = "efaaca54-885e-4ac5-93bf-f0063f23d179"
+    prod_yor_trace            = "77289477-3cd9-40d0-a12b-66430d2cfe3f"
   }
 }
 
@@ -224,7 +224,7 @@ resource "aws_lb_target_group" "lb_target_group" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "lb_target_group"
-    prod_yor_trace            = "bf9205ca-0c9b-4d63-b386-f5180b988011"
+    prod_yor_trace            = "dbc66168-8a48-4639-9214-9c9f4c98c755"
   }
 }
 
@@ -284,7 +284,7 @@ DEFINITION
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "task_definition"
-    prod_yor_trace            = "b2033120-4ffd-4370-862f-1cc65934b170"
+    prod_yor_trace            = "64d184e8-3641-4180-a0d0-b1804e83c8db"
   }
 }
 
@@ -321,7 +321,7 @@ resource "aws_security_group" "hello_world_task_sg" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "hello_world_task_sg"
-    prod_yor_trace            = "d227d4dc-edee-492a-8371-eddf65d2d76f"
+    prod_yor_trace            = "9c0d1ec3-c9ee-417e-8c6d-10a41043d66f"
   }
 }
 
@@ -348,7 +348,7 @@ resource "aws_ecs_cluster" "main_ecs_cluster" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "main_ecs_cluster"
-    prod_yor_trace            = "0a2a2b38-0a30-45ae-83a9-e18021dec81b"
+    prod_yor_trace            = "73cea8bd-2fb3-4d80-8294-9870999335b6"
   }
 }
 
@@ -381,7 +381,7 @@ resource "aws_ecs_service" "hello_world_ecs_srvc" {
     prod_git_org              = "jonhurtt"
     prod_git_repo             = "secure-sdlc"
     prod_yor_name             = "hello_world_ecs_srvc"
-    prod_yor_trace            = "fd5c28eb-a550-4b49-a0fc-793b009f4424"
+    prod_yor_trace            = "890c6b9d-408b-4d7d-8aff-cf54f0bc551b"
   }
 }
 
