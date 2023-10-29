@@ -13,15 +13,15 @@ ls -al $currentlocation | grep .tf
 echo $spacer
 
 echo "Basline Files"
-ls -al $currentlocation/_baseline/ | grep .tf
+ls -al $currentlocation/terraform/_baseline/ | grep .tf
 echo $spacer
 
 echo "Replacing build_apache_ec2"
-cp $currentlocation/_baseline/build_apache_ec2.untagged-tf $currentlocation/build_apache_ec2.tf
+cp $currentlocation/terraform/_baseline/build_apache_ec2.untagged-tf $currentlocation/terraform/build_apache_ec2.tf
 echo $spacer
 
 echo "Replacing build_aws_ecs"
-cp $currentlocation/_baseline/build_aws_ecs.untagged-tf $currentlocation/build_aws_ecs.tf 
+cp $currentlocation/terraform/_baseline/build_aws_ecs.untagged-tf $currentlocation/terraform/build_aws_ecs.tf 
 echo $spacer
 
 #2 Initiate a Commit via API? 
