@@ -138,7 +138,7 @@ jobs:
           id: upload-config
           with:
             workspace: ${{ env.TF_WORKSPACE }}
-            directory: ${{ env.TF)CONFIG_DIRECTORY }}
+            directory: ${{ env.TF_CONFIG_DIRECTORY }}
 
         - name: Create Run
           uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.4
