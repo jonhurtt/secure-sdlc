@@ -1,23 +1,10 @@
 #Source: https://www.architect.io/blog/2021-03-30/create-and-manage-an-aws-ecs-cluster-with-terraform/
 #Used to Build AWS ECS Cluster
 
-data "aws_availability_zones" "available_zones" {
-  state = "available"
-}
+
 
 resource "aws_vpc" "default" {
   cidr_block = "10.32.0.0/16"
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "default"
-    prod_yor_trace            = "7124b733-41eb-4626-bb23-c23735fc39ab"
-  }
 }
 
 #Public Subnet
@@ -27,17 +14,6 @@ resource "aws_subnet" "public_sub" {
   availability_zone       = data.aws_availability_zones.available_zones.names[count.index]
   vpc_id                  = aws_vpc.default.id
   map_public_ip_on_launch = true
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "public_sub"
-    prod_yor_trace            = "63faa49c-bc99-4968-8c31-067be0c5c34e"
-  }
 }
 
 #Private Subnet
@@ -46,17 +22,6 @@ resource "aws_subnet" "private_sub" {
   cidr_block        = cidrsubnet(aws_vpc.default.cidr_block, 8, count.index)
   availability_zone = data.aws_availability_zones.available_zones.names[count.index]
   vpc_id            = aws_vpc.default.id
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "private_sub"
-    prod_yor_trace            = "fb456756-975b-4ec2-a48c-f8be0edaea4d"
-  }
 }
 
 /*These six resources handle networking and communication to and from the internet outside of the VPC. 
@@ -70,17 +35,6 @@ from the load balancer and the application service*/
 resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws_vpc.default.id
 
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "internet_gateway"
-    prod_yor_trace            = "3ee5eb01-0c4e-4ffa-be69-1a0eec1bb955"
-  }
 }
 
 resource "aws_route" "internet_access" {
@@ -93,17 +47,6 @@ resource "aws_eip" "gateway_eip" {
   count      = 2
   domain     = "vpc"
   depends_on = [aws_internet_gateway.internet_gateway]
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "gateway_eip"
-    prod_yor_trace            = "faadd18c-4389-44c3-94d8-9c33be2e0f30"
-  }
 }
 
 resource "aws_nat_gateway" "nat_gateway" {
@@ -111,17 +54,6 @@ resource "aws_nat_gateway" "nat_gateway" {
   subnet_id     = element(aws_subnet.public_sub.*.id, count.index)
   allocation_id = element(aws_eip.gateway_eip.*.id, count.index)
 
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "nat_gateway"
-    prod_yor_trace            = "f17bd665-084e-481f-84b0-857f65480f66"
-  }
 }
 
 resource "aws_route_table" "private_rt" {
@@ -131,17 +63,6 @@ resource "aws_route_table" "private_rt" {
   route {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = element(aws_nat_gateway.nat_gateway.*.id, count.index)
-  }
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "private_rt"
-    prod_yor_trace            = "c4c3a2e6-b814-42f4-9e98-6d80d4f9b4b7"
   }
 }
 
@@ -173,17 +94,6 @@ resource "aws_security_group" "lb_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "lb_sg"
-    prod_yor_trace            = "7ffc5029-d4ce-4403-b6d5-bdd0a3a8bb85"
-  }
 }
 
 /*
@@ -195,17 +105,6 @@ resource "aws_lb" "default_lb" {
   name            = "aws-loadbalancer"
   subnets         = aws_subnet.public_sub.*.id
   security_groups = [aws_security_group.lb_sg.id]
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "default_lb"
-    prod_yor_trace            = "061362bf-b278-4972-87c3-c0c10e6a3e3f"
-  }
 }
 
 resource "aws_lb_target_group" "lb_target_group" {
@@ -215,17 +114,6 @@ resource "aws_lb_target_group" "lb_target_group" {
   vpc_id      = aws_vpc.default.id
   target_type = "ip"
 
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "lb_target_group"
-    prod_yor_trace            = "dccc4fe8-cc13-4b9d-970d-aa7d2cf8ec16"
-  }
 }
 
 resource "aws_lb_listener" "lb_listener" {
@@ -275,17 +163,6 @@ resource "aws_ecs_task_definition" "task_definition" {
   }
 ]
 DEFINITION
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "task_definition"
-    prod_yor_trace            = "18fb2e89-a778-448b-869b-16994eeaaf60"
-  }
 }
 
 /*
@@ -312,17 +189,6 @@ resource "aws_security_group" "hello_world_task_sg" {
     to_port     = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "hello_world_task_sg"
-    prod_yor_trace            = "71e17bc7-4db7-4da7-9577-2bf4e8784065"
-  }
 }
 
 /*
@@ -339,17 +205,6 @@ in the depends_on array.
 resource "aws_ecs_cluster" "main_ecs_cluster" {
   name = "secure-sdlc-ecs"
 
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "main_ecs_cluster"
-    prod_yor_trace            = "bc067c2b-686b-4ba1-9361-804b9f2fc646"
-  }
 }
 
 resource "aws_ecs_service" "hello_world_ecs_srvc" {
@@ -372,16 +227,5 @@ resource "aws_ecs_service" "hello_world_ecs_srvc" {
 
   depends_on = [aws_lb_listener.lb_listener]
 
-  tags = {
-    prod_git_commit           = "5c06ea5782a56edb27a5c5b726713d1392fb0ac8"
-    prod_git_file             = "terraform/build_aws_ecs.tf"
-    prod_git_last_modified_at = "2023-10-29 11:55:03"
-    prod_git_last_modified_by = "JonHurtt@gmail.com"
-    prod_git_modifiers        = "JonHurtt"
-    prod_git_org              = "jonhurtt"
-    prod_git_repo             = "secure-sdlc"
-    prod_yor_name             = "hello_world_ecs_srvc"
-    prod_yor_trace            = "7c0d9f6d-173a-40ad-a451-6e081f39c337"
-  }
 }
 

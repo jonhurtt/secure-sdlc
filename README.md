@@ -93,6 +93,7 @@ List of Security Functions provided by Prisma Cloud
 - [Terraform Cloud Workflows for GitHub](https://github.com/hashicorp/tfc-workflows-github)
 - [Terraform AWS modules](https://github.com/terraform-aws-modules)
 - [Create Amazon EKS Cluster using Terraform Module](https://dev.to/aws-builders/create-amazon-eks-cluster-using-terraform-module-27p5)
+- [Provision and EKS cluster (AWS)](https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks)
 - [How to create Docker Images with a Dockerfile on Ubuntu 22.04 LTS](https://www.howtoforge.com/tutorial/how-to-create-docker-images-with-dockerfile/)
 
 ## Inspiration
