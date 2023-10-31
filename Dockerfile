@@ -1,4 +1,5 @@
 # syntax=docker/dockerfile:1
+FROM node:18-alpine
 
 #will result in success at CI Scan
 #FROM node:18-alpine
@@ -9,4 +10,4 @@
 #EXPOSE 3000
 
 #will result in failure at CI Scan
-FROM ubuntu:22.04 
+#ROM ubuntu:22.04 
