@@ -116,7 +116,7 @@ List of Security Functions provided by Prisma Cloud
 - Look to retrieve Terrform Apply Output and add to workflow in some manner
 
 ## Clean Up
--Script abilable via [`reset_environment.sh`](https://github.com/jonhurtt/secure-sdlc/blob/main/reset_environment.sh)
--Destroy Environment via Terraform Cloud
+- Remove Tags from IaC Templates
+- Destroy Environment via Terraform Cloud
 
 /end
