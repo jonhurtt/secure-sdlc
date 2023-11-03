@@ -2,26 +2,6 @@
 # SPDX-License-Identifier: MPL-2.0
 # Buildng EC2 Instance with Apache and changing default webpage
 
-/* Moved to versions.tf
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "4.52.0"
-    }
-    random = {
-      source  = "hashicorp/random"
-      version = "3.4.3"
-    }
-  }
-  required_version = ">= 1.1.0"
-}
-
-provider "aws" {
-  region = "us-east-1"
-}
-*/
-
 #resource "random_pet" "sg" {}
 
 data "aws_ami" "ubuntu" {
