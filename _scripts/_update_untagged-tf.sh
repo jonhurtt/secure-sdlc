@@ -9,6 +9,7 @@ spacer="========================================================================
 echo $spacer
 echo "Updating Untagged Terraform Files"
 echo $spacer
+cd ..
 current_path=$(pwd)
 terraform_dir="/terraform"
 full_path=$current_path
