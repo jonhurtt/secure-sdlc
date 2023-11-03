@@ -16,3 +16,5 @@ aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terr
 echo $spacer
 kubectl cluster-info
 echo $spacer
+kubectl get pods --all-namespaces -o wide
+echo $spacer

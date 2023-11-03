@@ -9,6 +9,7 @@ echo $spacer
 echo "Start of Resetting Enviornment"
 echo $spacer
 #1. Step 1 remove Yor Tags from by repalcing with files without tags
+cd ..
 current_path=$(pwd)
 terraform_dir="/terraform"
 full_path=$current_path
