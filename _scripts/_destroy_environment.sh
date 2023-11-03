@@ -6,13 +6,6 @@
 
 spacer="=============================================================================================================="
 echo $spacer
-
-echo "Updating AWS CLI to connect to newly created EKS Cluster"
-echo $spacer
-aws sts get-caller-identity
-echo $spacer
 cd ../terraform/
-aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
-echo $spacer
-kubectl cluster-info
+terraform destroy
 echo $spacer

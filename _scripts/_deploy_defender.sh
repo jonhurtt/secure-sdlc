@@ -5,15 +5,17 @@
 
 
 spacer="=============================================================================================================="
-echo $spacer
 
-echo "Creating Namesapce an"
 echo $spacer
-kubectl create -f ../k8/create-namespace.yaml
+echo "kubectl create -f ../k8-yaml/create-namespace.yaml"
+kubectl create -f ../k8-yaml/create-namespace.yaml
 echo $spacer
+echo "kubectl get namespaces"
 kubectl get namespaces
 echo $spacer
-kubectl create -f ../k8/daemonset.yaml
+echo "create -f ../k8-yaml/daemonset.yaml"
+kubectl create -f ../k8-yaml/daemonset.yaml
 echo $spacer
+echo "kubectl get pods --namespace twistloc" 
 kubectl get pods --namespace twistlock
 echo $spacer

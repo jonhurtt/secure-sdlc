@@ -30,9 +30,7 @@ echo "Removing Tags from build_aws_eks_cluster"
 cp $full_path/_baseline/build_aws_eks_cluster.untagged-tf $full_path/build_aws_eks_cluster.tf
 echo $spacer
 
-#2 Initiate a Commit via API? 
-
 
 echo $spacer
-echo "End of Resetting Enviornment"
+echo "End of Resetting Enviornment - Commit Code now"
 echo $spacer
