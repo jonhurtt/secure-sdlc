@@ -108,13 +108,13 @@ List of Security Functions provided by Prisma Cloud
     - [https://github.com/jonhurtt/github-terraform-aws](https://github.com/jonhurtt/github-terraform-aws)
 
 ## Roadmap
-- Add additional resources within main.tf or expand to a more complex environment
-- Increase Runtime Security with auto deploy of Prisma Cloud Defender
+- Increase Runtime Security with auto deploy of Prisma Cloud Defender on Host and Container Clusters
 - Look into Trusted Images within Prisma Cloud
-- Enablie twistcli scan to SARIF [https://github.com/NJannasch/twistcli-sarif](https://github.com/NJannasch/twistcli-sarif)
+- ~~Enablie twistcli scan to SARIF [https://github.com/NJannasch/twistcli-sarif](https://github.com/NJannasch/twistcli-sarif)~~
 - Look into [Deploy infrastructure with Terraform and CircleCI](https://developer.hashicorp.com/terraform/tutorials/automation/circle-ci)
 - Look into [Deploy Consul and Vault on Kubernetes with run triggers](https://developer.hashicorp.com/terraform/tutorials/automation/kubernetes-consul-vault-pipeline)
 - Look to retrieve Terrform Apply Output and add to workflow in some manner
+- Add additional resources within main.tf or expand to a more complex environment
 
 ## Clean Up
 - Remove Tags from IaC Templates
