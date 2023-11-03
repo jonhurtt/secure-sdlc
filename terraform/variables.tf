@@ -4,3 +4,12 @@ variable "app_count" {
   type = number
   default = 3
 }
+
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
+variable "region" {
+  description = "AWS region"
+  type        = string
+  default     = "us-east-1"
+}
