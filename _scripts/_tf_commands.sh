@@ -1,7 +1,7 @@
 #!/bin/bash
 # Written By Jonathan R. Hurtt
 # Part of https://github.com/jonhurtt/secure-sdlc
-#Bash script to reset the enviornment
+# Bash Script with commmands for Terraform via CLI
 
 #Notes for terraform
 terraform init
