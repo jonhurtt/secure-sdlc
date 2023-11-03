@@ -1,9 +1,7 @@
 #Source: https://www.architect.io/blog/2021-03-30/create-and-manage-an-aws-ecs-cluster-with-terraform/
 #Used to Build AWS ECS Cluster
 
-data "aws_availability_zones" "available_zones" {
-  state = "available"
-}
+
 
 resource "aws_vpc" "default" {
   cidr_block = "10.32.0.0/16"

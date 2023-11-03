@@ -22,12 +22,12 @@ echo "Basline Files"
 ls -al $full_path/_baseline/ | grep .tf
 echo $spacer
 
-echo "Replacing build_apache_ec2"
+echo "Removing Tags from build_apache_ec2"
 cp $full_path/_baseline/build_apache_ec2.untagged-tf $full_path/build_apache_ec2.tf
-echo $spacer
-
-echo "Replacing build_aws_ecs"
+echo "Removing Tags from build_aws_ecs"
 cp $full_path/_baseline/build_aws_ecs.untagged-tf $full_path/build_aws_ecs.tf 
+echo "Removing Tags from build_aws_eks_cluster"
+cp $full_path/_baseline/build_aws_eks_cluster.untagged-tf $full_path/build_aws_eks_cluster.tf
 echo $spacer
 
 #2 Initiate a Commit via API? 
