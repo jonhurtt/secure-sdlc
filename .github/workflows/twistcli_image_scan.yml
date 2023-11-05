@@ -1,4 +1,4 @@
-name: "Twistcli Image Scan"
+name: "Prisma Cloud (Twistcli) Image Scan"
 
 on:
   pull_request:

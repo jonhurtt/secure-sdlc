@@ -7,4 +7,4 @@
 terraform init
 terraform plan -out="tfplan"
 #terraform apply "tfplan"
-#terraform destory --force
+#terraform destory --auto-approve
