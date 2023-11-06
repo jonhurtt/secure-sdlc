@@ -7,6 +7,10 @@ on:
   #    branches: [main]  
   workflow_dispatch:
 
+env: 
+  ECR_REPOSITORY: ${{ vars.AWS_ECR_REPOSITORY }}
+  IMAGE_TAG: image_${{ github.event.repository.name }}
+
 jobs:
   twistcli_image_scan:
     permissions:
@@ -34,15 +38,12 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Build, Tag, and Push Image to Amazon ECR
-        id: ecr_push
+      - name: Build Image
+        id: build_image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ vars.AWS_ECR_REPOSITORY }}
-          IMAGE_TAG: image_${{ github.event.repository.name }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Prisma Cloud image scan
         id: image_scan
@@ -52,5 +53,11 @@ jobs:
           pcc_user: ${{ secrets.PCC_USER }}
           pcc_pass: ${{ secrets.PCC_PASS }}
           image_name: ${{ steps.login-ecr.outputs.registry }}/${{ vars.AWS_ECR_REPOSITORY }}:image_${{ github.event.repository.name }}
-          #image_name: '535135711985.dkr.ecr.us-east-1.amazonaws.com/secure_sdlc_image_repository:image_secure-sdlc'
-          #containerized: true
+
+      - name: Push Image to Amazon ECR
+        id: ecr_push
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}       
+      run: |
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+  
