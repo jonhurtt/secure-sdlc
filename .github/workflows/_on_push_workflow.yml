@@ -28,7 +28,7 @@ jobs:
     
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@master
 
       - name: Run Checkov Action
         id: checkov
@@ -131,7 +131,7 @@ jobs:
         contents: read
       steps:
         - name: Checkout
-          uses: actions/checkout@v3
+          uses: actions/checkout@master
 
         - name: Upload Configuration
           uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.4
