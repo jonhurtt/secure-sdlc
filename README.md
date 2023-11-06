@@ -29,8 +29,8 @@ List of Security Functions provided by Prisma Cloud
 
 ### Secure @ Build & Deploy
 1. Image Scanning with Twistcli via GitHub Action @ Push to Main Branch
-1. IaC & SCA Scanning with Prisma Cloud via Terraform Run Task during Terraform Plan
-1. IaC & SCA Scanning with Prisma Cloud via Terraform Run Task during Terraform Apply
+1. IaC Scanning with Prisma Cloud via Terraform Run Task during Terraform Plan
+1. IaC Scanning with Prisma Cloud via Terraform Run Task during Terraform Apply
 1. Scanning Images in Container Image Registry via Prisma Cloud
 
 ### Secure the Runtime
