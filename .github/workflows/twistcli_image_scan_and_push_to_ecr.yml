@@ -7,10 +7,6 @@ on:
   #    branches: [main]  
   workflow_dispatch:
 
-#env:
-    #IMAGE_NAME: ${{ github.repository }}:${{ github.sha }}
-    #IMAGE_PATH: "."
-
 jobs:
   twistcli_image_scan:
     permissions:
@@ -27,26 +23,9 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@master
 
-      - name: Build the Image
+      #- name: Build the Image
         #run: docker build -t ${{ env.IMAGE_NAME }} ${{ env.IMAGE_PATH }}
-        run: docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        
-      - name: Prisma Cloud image scan
-        id: scan
-        uses: PaloAltoNetworks/prisma-cloud-scan@v1.5
-        with:
-          pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
-          pcc_user: ${{ secrets.PCC_USER }}
-          pcc_pass: ${{ secrets.PCC_PASS }}
-          image_name: ${{ env.IMAGE_NAME }}
-          #containerized: true
-          
-      # (Optional) for compatibility with GitHub's code scanning alerts
-      - name: Upload SARIF file
-        if: ${{ always() }} # necessary if using failure thresholds in the image scan
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: ${{ steps.scan.outputs.sarif_file }}
+        #run: docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@master
@@ -63,7 +42,25 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ${{vars.AWS_ECR_REPOSITORY}}
-          IMAGE_TAG: image_${{ github.event.repository.name }}_${{ env.DATE }}
+          IMAGE_TAG: image_${{ github.event.repository.name }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          #docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+      - name: Prisma Cloud image scan
+        id: scan
+        uses: PaloAltoNetworks/prisma-cloud-scan@v1.5
+        with:
+          pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
+          pcc_user: ${{ secrets.PCC_USER }}
+          pcc_pass: ${{ secrets.PCC_PASS }}
+          #image_name: ${{ env.IMAGE_NAME }}
+          image_name: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          #containerized: true
+
+     # (Optional) for compatibility with GitHub's code scanning alerts
+      - name: Upload SARIF file
+        if: ${{ always() }} # necessary if using failure thresholds in the image scan
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarif_file }}
