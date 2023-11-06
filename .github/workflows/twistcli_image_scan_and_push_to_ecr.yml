@@ -54,5 +54,5 @@ jobs:
           pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
           pcc_user: ${{ secrets.PCC_USER }}
           pcc_pass: ${{ secrets.PCC_PASS }}
-          image_name: 'secure_sdlc_image_repository:image_secure-sdlc'
+          image_name: '535135711985.dkr.ecr.us-east-1.amazonaws.com/secure_sdlc_image_repository:image_secure-sdlc'
           #containerized: true
