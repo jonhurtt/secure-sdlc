@@ -1,4 +1,4 @@
-name: "Prisma Cloud (Twistcli) Image Scan and Push to ECR"
+name: "Debugging Twistcli Scans at CI & Registry"
 
 on:
   #pull_request:
@@ -39,6 +39,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build, tag, and push image to Amazon ECR
+        id: ecr_push
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ${{vars.AWS_ECR_REPOSITORY}}
@@ -48,11 +49,12 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Prisma Cloud image scan
-        id: scan
+        id: image_scan
         uses: PaloAltoNetworks/prisma-cloud-scan@v1.5
         with:
           pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
           pcc_user: ${{ secrets.PCC_USER }}
           pcc_pass: ${{ secrets.PCC_PASS }}
-          image_name: '535135711985.dkr.ecr.us-east-1.amazonaws.com/secure_sdlc_image_repository:image_secure-sdlc'
+          image_name: ${{ steps.ecr_push.env.ECR_REGISTRY }}/${{ steps.ecr_push.env.ECR_REPOSITORY }}:${{ steps.ecr_push.env.IMAGE_TAG }}
+          #image_name: '535135711985.dkr.ecr.us-east-1.amazonaws.com/secure_sdlc_image_repository:image_secure-sdlc'
           #containerized: true
