@@ -27,13 +27,15 @@ List of Security Functions provided by Prisma Cloud
 1. IaC & SCA Scanning with Checkov via GitHub Action @ Push to Main Branch
 1. IaC & SCA Scanning with Prisma Cloud via Integration @ Push to Main Branch
 
+
 ### Secure @ Build & Deploy
-1. IaC & SCA Scanning with Prisma Cloud via Integration with Terraform Cloud
-1. Image Scanning with Checkov via GitHub Action @ Push to Main Branch
+1. Image Scanning with Twistcli via GitHub Action @ Push to Main Branch
+1. IaC & SCA Scanning with Prisma Cloud via Terraform Run Task during Terraform Plan
+1. IaC & SCA Scanning with Prisma Cloud via Terraform Run Task during Terraform Apply
 1. Scanning Images in Container Image Registry via Prisma Cloud
 
 ### Secure the Runtime
-1. Scanning for CI/CD Risk within Pipeline
+1. Scanning for CI/CD Risk within Development Pipelines
 1. Continuous Scanning of Configurations in AWS environment
 1. Continuous Workload Vulnerability Scanning of cloud workloads
 
@@ -96,6 +98,8 @@ List of Security Functions provided by Prisma Cloud
 - [Create Amazon EKS Cluster using Terraform Module](https://dev.to/aws-builders/create-amazon-eks-cluster-using-terraform-module-27p5)
 - [Provision and EKS cluster (AWS)](https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks)
 - [How to create Docker Images with a Dockerfile on Ubuntu 22.04 LTS](https://www.howtoforge.com/tutorial/how-to-create-docker-images-with-dockerfile/)
+- [Kubernetes Provider for Terraform](https://github.com/hashicorp/terraform-provider-kubernetes)
+- [Deployment of Kubernetes, Helm and YAML files using Terraform](https://msandbu.org/deployment-of-kubernetes-helm-and-yaml-files-using-terraform/)
 
 ## Inspiration
 - [https://github.com/jcallowaypanw/cloud-security-aws-environement](https://github.com/jcallowaypanw/cloud-security-aws-environement)
