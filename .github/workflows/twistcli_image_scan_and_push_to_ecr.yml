@@ -44,7 +44,7 @@ jobs:
           ECR_REPOSITORY: ${{vars.AWS_ECR_REPOSITORY}}
           IMAGE_TAG: image_${{ github.event.repository.name }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          #docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Prisma Cloud image scan
@@ -55,7 +55,7 @@ jobs:
           pcc_user: ${{ secrets.PCC_USER }}
           pcc_pass: ${{ secrets.PCC_PASS }}
           #image_name: ${{ env.IMAGE_NAME }}
-          image_name: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          image_name: ${{ ECR_REGISTRY}}/${{ECR_REPOSITORY}}:${{IMAGE_TAG}}
           #containerized: true
 
      # (Optional) for compatibility with GitHub's code scanning alerts
