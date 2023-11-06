@@ -9,7 +9,7 @@ on:
 
 env: 
   ECR_REPOSITORY: ${{ vars.AWS_ECR_REPOSITORY }}
-  IMAGE_TAG: image_${{ github.event.repository.name }}
+  IMAGE_TAG: debug_image_${{ github.event.repository.name }}
 
 jobs:
   twistcli_image_scan:
