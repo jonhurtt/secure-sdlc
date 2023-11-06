@@ -38,7 +38,7 @@ jobs:
         id: ecr_push
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{vars.AWS_ECR_REPOSITORY}}
+          ECR_REPOSITORY: ${{ vars.AWS_ECR_REPOSITORY }}
           IMAGE_TAG: image_${{ github.event.repository.name }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
@@ -51,6 +51,6 @@ jobs:
           pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
           pcc_user: ${{ secrets.PCC_USER }}
           pcc_pass: ${{ secrets.PCC_PASS }}
-          image_name: ${{ steps.login-ecr.outputs.registry }}/${{vars.AWS_ECR_REPOSITORY}}:image_${{ github.event.repository.name }}
+          image_name: ${{ steps.login-ecr.outputs.registry }}/${{ vars.AWS_ECR_REPOSITORY }}:image_${{ github.event.repository.name }}
           #image_name: '535135711985.dkr.ecr.us-east-1.amazonaws.com/secure_sdlc_image_repository:image_secure-sdlc'
           #containerized: true
