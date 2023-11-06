@@ -44,7 +44,7 @@ List of Security Functions provided by Prisma Cloud
 
 ### Integration with AWS
 - Configure GitHub Action Secret - `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
-- Configure GitHub Action Variables - `AWS_ECR_REPOSITORY`
+- Configure GitHub Action Variables - `AWS_ECR_REPOSITORY` and `AWS_REGION`
 
 ### Integrations with Terraform Cloud
 - Configure Workspace to allow for "Auto apply" for Apply Method
