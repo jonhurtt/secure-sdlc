@@ -23,10 +23,6 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@master
 
-      #- name: Build the Image
-        #run: docker build -t ${{ env.IMAGE_NAME }} ${{ env.IMAGE_PATH }}
-        #run: docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
@@ -55,6 +51,6 @@ jobs:
           pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
           pcc_user: ${{ secrets.PCC_USER }}
           pcc_pass: ${{ secrets.PCC_PASS }}
-          image_name: ${{ steps.ecr_push.env.ECR_REGISTRY }}/${{ steps.ecr_push.env.ECR_REPOSITORY }}:${{ steps.ecr_push.env.IMAGE_TAG }}
+          image_name: ${{ steps.login-ecr.outputs.registry }}/${{vars.AWS_ECR_REPOSITORY}}:image_${{ github.event.repository.name }}
           #image_name: '535135711985.dkr.ecr.us-east-1.amazonaws.com/secure_sdlc_image_repository:image_secure-sdlc'
           #containerized: true
