@@ -55,7 +55,7 @@ jobs:
           pcc_user: ${{ secrets.PCC_USER }}
           pcc_pass: ${{ secrets.PCC_PASS }}
           #image_name: ${{ env.IMAGE_NAME }}
-          image_name: ${{ ECR_REGISTRY}}/${{ECR_REPOSITORY}}:${{IMAGE_TAG}}
+          image_name: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
           #containerized: true
 
      # (Optional) for compatibility with GitHub's code scanning alerts
