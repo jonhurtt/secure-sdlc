@@ -120,6 +120,7 @@ List of Security Functions provided by Prisma Cloud
 - Look into [Deploy Consul and Vault on Kubernetes with run triggers](https://developer.hashicorp.com/terraform/tutorials/automation/kubernetes-consul-vault-pipeline)
 - Look to retrieve Terrform Apply Output and add to workflow in some manner
 - Add additional resources within main.tf or expand to a more complex environment
+- Add Traffic [https://github.com/TheScriptGuy/generate-url-requests-docker](https://github.com/TheScriptGuy/generate-url-requests-docker)
 
 ## Clean Up
 - Remove Tags from IaC Templates
