@@ -73,10 +73,10 @@ jobs:
           echo "twistcli_path: " ${twistcli_path}
           echo "downloading twistcli"
           curl -sS --header "authorization: Bearer ${twistcli_bearer_token}" ${twistcli_path} --output ./twistcli
-          chmod a+x twistcli
+          chmod a+x ./twistcli
           ls -al
           echo "twistcli downloaded"
           docker -v
           
-          sh .${PWD}/twistcli images scan ${image_name}
+          ./twistcli images scan --details $IMAGE_NAME
           echo "end__twistcli_scan"
