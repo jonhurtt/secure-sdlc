@@ -67,12 +67,12 @@ jobs:
         run: |
           echo "Starting"  
           echo ${PWD}
-          ls
+          ls -al
           echo "twistcli_path: " ${twistcli_path}
           echo "downloading twistcli"
           curl -sS --header "authorization: Bearer ${twistcli_bearer_token}" ${twistcli_path} > twistcli
           chmod a+x twistcli
-          ls
+          ls -al
           echo "twistcli downloaded"
           .${PWD}/twistcli image scan ${image_name}
           echo "Done"
