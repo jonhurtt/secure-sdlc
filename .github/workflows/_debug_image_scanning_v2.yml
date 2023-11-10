@@ -57,12 +57,15 @@ jobs:
       #    image_name: ${{ steps.login-ecr.outputs.registry }}/${{ vars.AWS_ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
 
       - name: Run Twistlock Scan
+        env:
+          TWISTCLI_PATH: ${{ vars.TWISTCLI_PATH }}
+          TWISTCLI_BEARER_TOKEN: ${{ secrets.TWISTCLI_BEARER_TOKEN }}
         run: |
           echo "Starting"  
           echo ${PWD}
           ls
-          echo "twistcli_path: " ${vars.TWISTCLI_PATH}
-          curl --progress-bar -L --header "authorization: Bearer ${secrets.TWISTCLI_BEARER_TOKEN}" ${vars.TWISTCLI_PATH} > twistcli
+          echo "twistcli_path: " ${TWISTCLI_PATH}
+          curl --progress-bar -L --header "authorization: Bearer ${TWISTCLI_BEARER_TOKEN}" ${TWISTCLI_PATH} > twistcli
           chmod a+x twistcli
           ls
           echo "Done"
