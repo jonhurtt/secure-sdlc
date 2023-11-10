@@ -74,5 +74,6 @@ jobs:
           chmod a+x twistcli
           ls -al
           echo "twistcli downloaded"
+          docker -v
           .${PWD}/twistcli images scan ${image_name}
           echo "Done"
