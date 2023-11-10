@@ -58,6 +58,10 @@ jobs:
 
       - name: Run Twistlock Scan
         run: |
+          echo "Starting"  
+          ${PWD}
           ls
-          echo "Pwd is " ${PWD}
-  
+          curl --progress-bar -L --header "authorization: Bearer ${TWISTCLI_BEARER_TOKEN}" ${TWISTCLI_PATH} > twistcli
+          chmod a+x twistcli
+          ls
+          echo "Done"
