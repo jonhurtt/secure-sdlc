@@ -62,7 +62,7 @@ jobs:
           echo ${PWD}
           ls
           echo "twistcli_path: " ${vars.TWISTCLI_PATH}
-          curl --progress-bar -L --header "authorization: Bearer ${TWISTCLI_BEARER_TOKEN}" ${TWISTCLI_PATH} > twistcli
+          curl --progress-bar -L --header "authorization: Bearer ${secrets.TWISTCLI_BEARER_TOKEN}" ${vars.TWISTCLI_PATH} > twistcli
           chmod a+x twistcli
           ls
           echo "Done"
