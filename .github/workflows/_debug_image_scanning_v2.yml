@@ -72,5 +72,6 @@ jobs:
           ls -al
           curl -sS --header "authorization: Bearer ${twistcli_bearer_token}" ${twistcli_path} --output ./twistcli
           chmod a+x ./twistcli
-          ./twistcli images scan --details $IMAGE_NAME
+          echo "Image Name:" ${IMAGE_NAME}
+          ./twistcli images scan --details ${IMAGE_NAME}
           echo "end__twistcli_scan"
