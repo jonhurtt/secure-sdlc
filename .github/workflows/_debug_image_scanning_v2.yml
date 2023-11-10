@@ -1,4 +1,4 @@
-name: "[Debug] Twistcli Scans at CI & Registry"
+name: "[Debug] Twistcli Scans at CI & Registry v2"
 
 on:
   #pull_request:
