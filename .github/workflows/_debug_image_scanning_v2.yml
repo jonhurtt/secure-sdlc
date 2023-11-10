@@ -58,14 +58,21 @@ jobs:
 
       - name: Run Twistlock Scan
         env:
-          TWISTCLI_PATH: ${{ vars.TWISTCLI_PATH }}
-          TWISTCLI_BEARER_TOKEN: ${{ secrets.TWISTCLI_BEARER_TOKEN }}
+          twistcli_path: ${{ vars.TWISTCLI_PATH }}
+          twistcli_bearer_token: ${{ secrets.TWISTCLI_BEARER_TOKEN }}
+          pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
+          pcc_user: ${{ secrets.PCC_USER }}
+          pcc_pass: ${{ secrets.PCC_PASS }}
+          image_name: ${{ steps.login-ecr.outputs.registry }}/${{ vars.AWS_ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
         run: |
           echo "Starting"  
           echo ${PWD}
           ls
-          echo "twistcli_path: " ${TWISTCLI_PATH}
-          curl -sS --header "authorization: Bearer ${TWISTCLI_BEARER_TOKEN}" ${TWISTCLI_PATH} > twistcli
+          echo "twistcli_path: " ${twistcli_path}
+          echo "downloading twistcli"
+          curl -sS --header "authorization: Bearer ${twistcli_bearer_token}" ${twistcli_path} > twistcli
           chmod a+x twistcli
           ls
+          echo "twistcli downloaded"
+          twistcli image scan ${image_name}
           echo "Done"
