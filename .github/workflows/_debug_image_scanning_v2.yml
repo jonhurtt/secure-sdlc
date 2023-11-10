@@ -59,4 +59,5 @@ jobs:
       - name: Run Twistlock Scan
         run: |
           ls
+          echo ${PWD}
   
