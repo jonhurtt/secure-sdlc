@@ -99,6 +99,7 @@ List of Security Functions provided by Prisma Cloud
 - [How to create Docker Images with a Dockerfile on Ubuntu 22.04 LTS](https://www.howtoforge.com/tutorial/how-to-create-docker-images-with-dockerfile/)
 - [Kubernetes Provider for Terraform](https://github.com/hashicorp/terraform-provider-kubernetes)
 - [Deployment of Kubernetes, Helm and YAML files using Terraform](https://msandbu.org/deployment-of-kubernetes-helm-and-yaml-files-using-terraform/)
+- [https://github.com/twistlock/sample-code/blob/master/CI/GitHub/.github/workflows/scan.yml](https://github.com/twistlock/sample-code/blob/master/CI/GitHub/.github/workflows/scan.yml)
 
 ## Inspiration
 - [https://github.com/jcallowaypanw/cloud-security-aws-environement](https://github.com/jcallowaypanw/cloud-security-aws-environement)

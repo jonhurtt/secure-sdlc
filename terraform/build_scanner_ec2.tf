@@ -4,7 +4,7 @@
 
 #resource "random_pet" "sg" {}
 
-data "aws_ami" "ubuntu" {
+data "aws_ami" "scanner_ami" {
   most_recent = true
 
   filter {
