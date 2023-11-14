@@ -23,7 +23,7 @@ echo "Basline Files"
 ls -al $full_path/_baseline/ | grep .tf
 echo $spacer
 
-terraform_files=("build_apache_ec2" "build_aws_ecs" "build_aws_eks_cluster")
+terraform_files=("build_apache_ec2" "build_aws_ecs" "build_aws_eks_cluster" build_scanner_ec2)
 
 for file in ${terraform_files[@]}; do
   echo "Removing Tags from" $file
