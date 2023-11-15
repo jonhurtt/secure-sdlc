@@ -1,5 +1,6 @@
+#Build AWS ECS Cluster
 #Source: https://www.architect.io/blog/2021-03-30/create-and-manage-an-aws-ecs-cluster-with-terraform/
-#Used to Build AWS ECS Cluster
+
 
 data "aws_availability_zones" "available_zones" {
   state = "available"
@@ -104,13 +105,13 @@ in each availability zone with the load balancer security group.
 */
 
 resource "aws_lb" "default_lb" {
-  name            = "aws-loadbalancer"
+  name            = "ecs-aws-loadbalancer"
   subnets         = aws_subnet.public_sub.*.id
   security_groups = [aws_security_group.lb_sg.id]
 }
 
 resource "aws_lb_target_group" "lb_target_group" {
-  name        = "lb-target-group"
+  name        = "ecs-lb-target-group"
   port        = 80
   protocol    = "HTTP"
   vpc_id      = aws_vpc.default.id
@@ -142,7 +143,7 @@ the task when it runs.
 */
 
 resource "aws_ecs_task_definition" "task_definition" {
-  family                   = "hello-world-app"
+  family                   = "ecs-hello-world-app"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = 1024
@@ -175,7 +176,7 @@ from the network interfaces that are used with that security group. It allows al
 outbound traffic of any protocol as seen in the egress settings.
 */
 resource "aws_security_group" "hello_world_task_sg" {
-  name   = "task-security-group"
+  name   = "ecs-task-security-group"
   vpc_id = aws_vpc.default.id
 
   ingress {
@@ -213,7 +214,7 @@ resource "aws_ecs_service" "hello_world_ecs_srvc" {
   name            = "secure-sdlc-ecs-service"
   cluster         = aws_ecs_cluster.main_ecs_cluster.id
   task_definition = aws_ecs_task_definition.task_definition.arn
-  desired_count   = var.app_count
+  desired_count   = var.ecs_app_count 
   launch_type     = "FARGATE"
 
   network_configuration {
@@ -223,7 +224,7 @@ resource "aws_ecs_service" "hello_world_ecs_srvc" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.lb_target_group.id
-    container_name   = "hello-world-app"
+    container_name   = "ecs-hello-world-app"
     container_port   = 3000
   }
 

@@ -6,13 +6,17 @@
 
 
 spacer="=============================================================================================================="
+
 echo $spacer
 echo "Updating Untagged Terraform Files"
 echo $spacer
 cd ..
 current_path=$(pwd)
+
 terraform_dir="/terraform"
 untagged_dir="/_untagged"
+module_dir="/modules"
+
 full_path=$current_path
 full_path+=$terraform_dir
 
@@ -24,18 +28,15 @@ echo "Untagged Terraform Files"
 ls -al $full_path$untagged_dir/ | grep .tf
 echo $spacer
 
-terraform_files=("build_apache_ec2" "build_aws_ecs" "build_aws_eks_cluster" build_scanner_ec2)
+terraform_modules=("aws-apache-ec2" "aws-ec2-scanner" "aws-ecs-cluster" "aws-eks-cluster" "aws-s3-static-website-bucket")
 
-for file in ${terraform_files[@]}; do
-  echo "Removing Tags from" $file
-  cp $full_path/$file.tf $full_path$untagged_dir/$file.untagged-tf 
+for module in ${terraform_modules[@]}; do
+  echo "Saving from $module/main.tf to $module.untagged-tf"
+  cp $full_path$module_dir/$module/main.tf $full_path$untagged_dir/$module.untagged-tf 
 done
 
 echo $spacer
 
-#2 Initiate a Commit via API? 
-
-
 echo $spacer
-echo "Updating Untagged Terraform Files Complete"
+echo "Updating Untagged Terraform Files Complete - Commit Code Now"
 echo $spacer

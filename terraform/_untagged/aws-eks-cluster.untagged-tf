@@ -1,8 +1,7 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-# Filter out local zones, which are not currently supported 
-# with managed node groups
+# Filter out local zones, which are not currently supported with managed node groups
 data "aws_availability_zones" "available" {
   filter {
     name   = "opt-in-status"
@@ -11,7 +10,8 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
-  cluster_name = "jhurtt-aws-eks-deploy-${random_string.suffix.result}"
+  cluster_name = "${var.cluster_name_prefix}${random_string.suffix.result}"
+  
 }
 
 resource "random_string" "suffix" {
@@ -107,8 +107,5 @@ resource "aws_eks_addon" "ebs-csi" {
   addon_name               = "aws-ebs-csi-driver"
   addon_version            = "v1.20.0-eksbuild.1"
   service_account_role_arn = module.irsa-ebs-csi.iam_role_arn
-  tags = {
-    "eks_addon" = "ebs-csi"
-    "terraform" = "true"
-  }
+  tags = var.tags
 }
