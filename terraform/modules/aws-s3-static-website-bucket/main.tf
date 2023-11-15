@@ -1,7 +1,7 @@
 #Source: https://developer.hashicorp.com/terraform/tutorials/modules/module-create
 
 resource "aws_s3_bucket" "s3_bucket" {
-  bucket = var.s3_bucket_name
+  bucket = var.bucket_name
 
   tags = var.tags
 }

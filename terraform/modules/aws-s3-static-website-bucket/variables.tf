@@ -4,7 +4,7 @@ variable "tags" {
   default     = {}
 }
 
-variable "s3_bucket_name" {
+variable "bucket_name" {
   description = "Name of the s3 bucket. Must be unique."
   type        = string
 }
