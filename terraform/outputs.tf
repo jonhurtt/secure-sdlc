@@ -69,11 +69,11 @@ output "eks_cluster_security_group_id" {
 
 output "eks_vpc_public_subnets" {
   description = "IDs of the VPC's public subnets"
-  value       = module.eks_cluster.public_subnets
+  value       = module.eks_cluster.vpc_public_subnets
 }
 
-output "eks_ec2_instance_public_ips" {
-  description = "Public IP addresses of EC2 instances"
-  value       = module.eks_cluster.ec2_instance_public_ips
-}
+#output "eks_ec2_instance_public_ips" {
+#  description = "Public IP addresses of EC2 instances"
+#  value       = module.eks_cluster.ec2_instance_public_ips
+#}
 
