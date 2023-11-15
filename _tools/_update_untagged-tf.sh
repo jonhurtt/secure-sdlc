@@ -13,29 +13,29 @@ echo $spacer
 cd ..
 current_path=$(pwd)
 
-terraform_dir="/terraform"
-untagged_dir="/_untagged"
-module_dir="/modules"
+terraform_dir=$current_path"/terraform"
+untagged_dir=$terraform_dir"/_untagged"
+module_dir=$terraform_dir"/modules"
 
-full_path=$current_path
-full_path+=$terraform_dir
-
-echo "Current Location: " $full_path
-ls -al $full_path | grep .tf
+echo "Current Path: " $current_path
 echo $spacer
 
-echo "Untagged Terraform Files"
-ls -al $full_path$untagged_dir/ | grep .tf
+echo "Terraform Directory: " $terraform_dir
+ls -al $terraform_dir/ | grep .tf
 echo $spacer
 
-terraform_modules=("aws-apache-ec2" "aws-ec2-scanner" "aws-ecs-cluster" "aws-eks-cluster" "aws-s3-static-website-bucket")
+echo "Untagged Terraform Dir"
+ls -al $untagged_dir/ | grep .tf
+echo $spacer
 
-for module in ${terraform_modules[@]}; do
-  echo "Saving from $module/main.tf to $module.untagged-tf"
-  cp $full_path$module_dir/$module/main.tf $full_path$untagged_dir/$module.untagged-tf 
+for directory in `find $module_dir -type d -maxdepth 1 -mindepth 1 -not -name .svn`
+do
+    module="$(basename $directory)"
+    echo "Searching Module "${module}
+    echo "Saving from ${module}/main.tf to ${module}.untagged-tf"
+    cp $module_dir/$module/main.tf $untagged_dir/$module.untagged-tf
+    echo $spacer
 done
-
-echo $spacer
 
 echo $spacer
 echo "Updating Untagged Terraform Files Complete - Commit Code Now"
