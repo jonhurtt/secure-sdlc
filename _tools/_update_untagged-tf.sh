@@ -12,6 +12,7 @@ echo $spacer
 cd ..
 current_path=$(pwd)
 terraform_dir="/terraform"
+untagged_dir="/_untagged"
 full_path=$current_path
 full_path+=$terraform_dir
 
@@ -19,15 +20,15 @@ echo "Current Location: " $full_path
 ls -al $full_path | grep .tf
 echo $spacer
 
-echo "Basline Files"
-ls -al $full_path/_baseline/ | grep .tf
+echo "Untagged Terraform Files"
+ls -al $full_path$untagged_dir/ | grep .tf
 echo $spacer
 
 terraform_files=("build_apache_ec2" "build_aws_ecs" "build_aws_eks_cluster" build_scanner_ec2)
 
 for file in ${terraform_files[@]}; do
   echo "Removing Tags from" $file
-  cp $full_path/$file.tf $full_path/_baseline/$file.untagged-tf 
+  cp $full_path/$file.tf $full_path$untagged_dir/$file.untagged-tf 
 done
 
 echo $spacer
