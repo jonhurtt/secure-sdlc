@@ -36,3 +36,27 @@ module "ec2_apache" {
     environment =  var.environment_name
   }
 }
+
+#==================================================
+# Definding Module for ecs_cluster
+#==================================================
+module "ecs_cluster" {
+  source = "./modules/aws-ecs-cluster"
+  
+  tags = {
+    build_process = "terraform"
+    environment =  var.environment_name
+  }
+}
+
+#==================================================
+# Definding Module for eks_cluster
+#==================================================
+module "eks_cluster" {
+  source = "./modules/aws-eks-cluster"
+  
+  tags = {
+    build_process = "terraform"
+    environment =  var.environment_name
+  }
+}

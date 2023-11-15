@@ -16,13 +16,22 @@ variable "environment_name" {
   default     = "QA"
 }
 
-variable "app_count" {
+#App Count for ECS Cluster (Module Default of 3)
+variable "ecs_app_count" {
   type = number
-  default = 3
+  default = 4
 }
 
+#Name for S3 Static Website
 variable "s3_bucket_name" {
   description = "S3 Bucket Name for Static Website"
   type        = string
   default     = "S3-Static-Website"
+}
+
+#Name for S3 Static Website
+variable "eks_cluster_name_prefix" {
+  description = "EKS Cluster Name Prefix"
+  type        = string
+  default     = "jhurtt-aws-eks-deploy-"
 }
