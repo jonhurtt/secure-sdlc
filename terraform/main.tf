@@ -23,3 +23,16 @@ module "ec2_scanner" {
     environment =  var.environment_name
   }
 }
+
+
+#==================================================
+# Definding Module for ec2_apache
+#==================================================
+module "ec2_apache" {
+  source = "./modules/aws-apache-ec2"
+  
+  tags = {
+    build_process = "terraform"
+    environment =  var.environment_name
+  }
+}

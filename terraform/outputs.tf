@@ -30,6 +30,24 @@ output "website_bucket_domain" {
 }
 
 #==================================================
+# Output variable definitions for ec2_scanner
+#==================================================
+output "ec2_scanner_public_dns" {
+  description = "IP Address of EC2 Scanner Instance"
+  value       = module.ec2_scanner.public_dns
+}
+
+#==================================================
+# Output variable definitions for ec2_scanner
+#==================================================
+output "ec2_apache_public_dns" {
+  description = "IP Address of EC2 Apache Instance"
+  value       = module.ec2_apache.public_dns
+}
+
+
+
+#==================================================
 # Output variable definitions for Non Modulest
 #==================================================
 
