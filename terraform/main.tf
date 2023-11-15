@@ -54,7 +54,7 @@ module "ecs_cluster" {
 #==================================================
 module "eks_cluster" {
   source = "./modules/aws-eks-cluster"
-  
+  eks_cluster_name_prefix = var.eks_cluster_name_prefix
   tags = {
     build_process = "terraform"
     environment =  var.environment_name
