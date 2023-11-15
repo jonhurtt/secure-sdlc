@@ -20,3 +20,9 @@ variable "app_count" {
   type = number
   default = 3
 }
+
+variable "s3_bucket_name" {
+  description = "S3 Bucket Name for Static Website"
+  type        = string
+  default     = "S3-Static-Website"
+}
