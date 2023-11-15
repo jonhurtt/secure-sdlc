@@ -17,9 +17,9 @@ data "aws_ami" "scanner_ami" {
 }
 
 resource "aws_instance" "pc_scanner_instance" {
-  ami                    = data.aws_ami.ubuntu.id
+  ami                    = data.aws_ami.scanner_ami.id
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.web-sg.id]
+  vpc_security_group_ids = [aws_security_group.scanner-sg.id]
   
   tags = var.tags
 
@@ -34,7 +34,6 @@ resource "aws_instance" "pc_scanner_instance" {
               EOF
             
 }
-
 
 resource "aws_security_group" "scanner-sg" {
   name = "scanner-sg"

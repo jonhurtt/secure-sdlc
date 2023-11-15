@@ -6,15 +6,6 @@ output "region" {
   value       = var.region
 }
 
-output "vpc_public_subnets" {
-  description = "IDs of the VPC's public subnets"
-  value       = module.vpc.public_subnets
-}
-
-output "ec2_instance_public_ips" {
-  description = "Public IP addresses of EC2 instances"
-  value       = module.ec2_instances[*].public_ip
-}
 
 #==================================================
 # Output variable definitions for website_s3_bucket
@@ -50,7 +41,6 @@ output "ec2_apache_public_dns" {
   value       = module.ec2_apache.public_dns
 }
 
-
 #==================================================
 # Output variable definitions for ecs_cluster
 #==================================================
@@ -75,5 +65,15 @@ output "eks_cluster_endpoint" {
 output "eks_cluster_security_group_id" {
   description = "Security group ids attached to the cluster control plane"
   value       = module.eks_cluster.cluster_security_group_id
+}
+
+output "eks_vpc_public_subnets" {
+  description = "IDs of the VPC's public subnets"
+  value       = module.eks_cluster.public_subnets
+}
+
+output "eks_ec2_instance_public_ips" {
+  description = "Public IP addresses of EC2 instances"
+  value       = module.eks_cluster.ec2_instance_public_ips
 }
 
