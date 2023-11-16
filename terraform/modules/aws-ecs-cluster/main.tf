@@ -224,7 +224,7 @@ resource "aws_ecs_service" "hello_world_ecs_srvc" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.lb_target_group.id
-    container_name   = "ecs-hello-world-app"
+    container_name   = "hello-world-app"
     container_port   = 3000
   }
 

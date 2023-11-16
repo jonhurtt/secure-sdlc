@@ -18,6 +18,7 @@ module "ec2_scanner" {
   source = "./modules/aws-ec2-scanner"
   
   tags = {
+    name = "ec2_prisma_cloud_scanner"
     build_process = "terraform"
     environment =  var.environment_name
   }
@@ -31,6 +32,7 @@ module "ec2_apache" {
   source = "./modules/aws-apache-ec2"
   
   tags = {
+    name = "ec2_apache_web"
     build_process = "terraform"
     environment =  var.environment_name
   }

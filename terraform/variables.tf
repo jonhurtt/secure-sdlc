@@ -26,7 +26,7 @@ variable "ecs_app_count" {
 variable "s3_bucket_name" {
   description = "S3 Bucket Name for Static Website"
   type        = string
-  default     = "S3-Static-Website"
+  default     = "jhurtt-s3-static-website"
 }
 
 #Name for S3 Static Website
