@@ -123,6 +123,7 @@ List of Security Functions provided by Prisma Cloud
 - Add additional resources within main.tf or expand to a more complex environment
 - Add Traffic [https://github.com/TheScriptGuy/generate-url-requests-docker](https://github.com/TheScriptGuy/generate-url-requests-docker)
 - Defend ECS Cluster [https://live.paloaltonetworks.com/t5/prisma-cloud-videos/defend-aws-ecs-cluster-with-prisma-cloud-compute/ta-p/529649]
+- More Terraform Templates [https://github.com/pfertyk/terraform-templates](https://github.com/pfertyk/terraform-templates)
 
 ## Clean Up
 - Remove Tags from IaC Templates
